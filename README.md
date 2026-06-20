@@ -1,6 +1,6 @@
 # 羽山和行 - Hayama Kazuyuki
-技術を試すための、私の個人的な関心ごとを記録するサイトです。
-[羽山和行](https://hayamak.pages.dev/)
+私の実験場所。私の個人的な関心ごとを記録します。
+[羽山 - Hayama](https://hayamak.pages.dev/)
 
 ```sh
 npm run dev -- --host
