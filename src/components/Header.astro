@@ -1,0 +1,97 @@
+---
+// src/components/Header.astro
+
+import avatarImage from "../assets/profile/avatar.jpg";
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/articles", label: "Articles" },
+  { href: "/music", label: "Music" },
+  { href: "/snowboard", label: "Snowboard" },
+  { href: "/about", label: "About" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="avatar-link" aria-label="ホーム">
+      <img src={avatarImage.src} alt="羽山" class="avatar" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  "nav-link",
+                  currentPath === item.href && "is-active",
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-block: 1.5rem;
+    pointer-events: none;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .avatar-link,
+  .desktop-nav {
+    pointer-events: auto;
+  }
+
+  .avatar {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  .desktop-nav ul {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0.25rem;
+    list-style: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgb(24 24 27 / 0.08);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.is-active {
+    color: #14b8a6;
+  }
+</style>
