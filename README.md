@@ -1,5 +1,6 @@
 # 羽山和行 - Hayama Kazuyuki
-私の実験場所。私の個人的な関心ごとを記録します。
+
+私の実験場所。私の個人的な関心ごとを記録です。
 [羽山 - Hayama](https://hayamak.pages.dev/)
 
 ```sh
