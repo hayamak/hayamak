@@ -7,7 +7,7 @@
 npm run dev -- --host
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+<!-- > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun! -->
 
 ## 🚀 Project Structure
 
