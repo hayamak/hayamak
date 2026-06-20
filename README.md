@@ -4,6 +4,10 @@
 npm create astro@latest -- --template basics
 ```
 
+```sh
+npm run dev -- --host
+```
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure
