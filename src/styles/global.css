@@ -5,6 +5,7 @@
   --color-muted: #71717a;
   --color-bg: #fafafa;
 
+  --color-accent: #2563eb;
   --container-width: 960px;
 }
 
@@ -41,9 +42,6 @@ a {
 }
 
 .container {
-  width: min(
-    var(--container-width),
-    calc(100% - 3rem)
-  );
+  width: min(var(--container-width), calc(100% - 3rem));
   margin-inline: auto;
 }
