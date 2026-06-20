@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import XIcon from "../components/icons/XIcon.astro";
+import Instagram from "../components/icons/Instagram.astro";
 ---
 
+<!-- src/pages/index.astro -->
 <Layout
   title="羽山 - Hayama"
   description="羽山和行のホームページです。個人的に関心のある音楽、スペイン語、スノーボード、ジムに関して記録するサイトです。"
@@ -13,6 +16,23 @@ import Layout from "../layouts/Layout.astro";
         <p>
           音楽、スペイン語、スノーボード、ジムなど個人的に関心のあることを記録していきます。
         </p>
+        <div class="social-links">
+          <a href="#" aria-label="X">
+            <XIcon />
+          </a>
+
+          <a href="#" aria-label="Instagram">
+            <Instagram />
+          </a>
+          <a href="#" aria-label="GitHub">
+            <!-- <SocialIcon name="github" /> -->
+          </a>
+          <!-- 
+
+          <a href="#" aria-label="LinkedIn">
+            <SocialIcon name="linkedin" />
+          </a> -->
+        </div>
       </div>
     </div>
   </section>
@@ -70,6 +90,21 @@ import Layout from "../layouts/Layout.astro";
   .home-grid p {
     margin-top: 0.5rem;
     color: var(--color-muted);
+  }
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-links a {
+    display: inline-flex;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--color-text);
   }
 
   @media (min-width: 768px) {
