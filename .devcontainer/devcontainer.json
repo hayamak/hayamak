@@ -1,0 +1,15 @@
+{
+  "name": "Astro",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "forwardPorts": [4321],
+
+  "remoteUser": "node",
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["astro-build.astro-vscode"]
+    }
+  }
+}
