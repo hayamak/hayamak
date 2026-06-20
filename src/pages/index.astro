@@ -1,11 +1,76 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro"
 ---
 
-<Layout title='羽山 - hayama' description='羽山和行のホームページです。主に趣味の音楽、スノーボード、ジム、ソフトウェア技術の情報を紹介します。'>
-	<Welcome />
+<Layout title='羽山 - Hayama' description='羽山和行のホームページです。個人的に関心のある音楽、スペイン語、スノーボード、ジムに関して記録するサイトです。'>
+	<section class="hero">
+		<div class="container">
+			<div class="hero-inner">
+<h1>羽山和行のホームページ</h1>
+<p>音楽、スペイン語、スノーボード、ジムなど個人的に関心のあることを記録していきます。</p>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="home-section">
+		<div class="container home-grid">
+			<div>
+				<h2>記事</h2>
+				<p>ここに記事を置く予定</p>
+			</div>
+			<div>
+				<h2>プロフィール</h2>
+				<p>ここに記事を置く予定</p>
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+  .hero {
+    padding-block: 4rem 3rem;
+  }
+
+  .hero-inner {
+    max-width: 640px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .hero p {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .home-section {
+    padding-bottom: 4rem;
+  }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .home-grid p {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 768px) {
+    .home-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

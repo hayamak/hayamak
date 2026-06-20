@@ -1,8 +1,6 @@
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
+# 羽山和行 - Hayama Kazuyuki
+技術を試すための、私の個人的な関心ごとを記録するサイトです。
+[羽山和行](https://hayamak.pages.dev/)
 
 ```sh
 npm run dev -- --host
