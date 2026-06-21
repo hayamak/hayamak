@@ -2,6 +2,7 @@
 // src/pages/journal/index.astro
 
 import Layout from "../../layouts/Layout.astro";
+import SimpleLayout from "../../components/SimpleLayout.astro";
 import JournalCard from "../../components/JournalCard.astro";
 
 import { getCollection } from "astro:content";
@@ -12,16 +13,45 @@ journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="あれこれ">
-  <section class="container">
-    {
-      journals.map((journal) => (
-        <JournalCard
-          title={journal.data.title}
-          description={journal.data.description}
-          date={journal.data.pubDate.toISOString()}
-          href={`/journal/${journal.id}`}
-        />
-      ))
-    }
-  </section>
+  <SimpleLayout
+    title="あれこれ"
+    intro="ここでは主にプライベートで日々感じた、思ったあれやこれやを記録します。"
+  >
+    <section class="journal-list">
+      {
+        journals.map((journal) => (
+          <JournalCard
+            title={journal.data.title}
+            description={journal.data.description}
+            date={journal.data.pubDate.toISOString().slice(0, 10)}
+            href={`/journal/${journal.id}`}
+          />
+        ))
+      }
+    </section>
+  </SimpleLayout>
 </Layout>
+
+<style>
+  .journal-list {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .journal-list {
+      border-left: 1px solid #f4f4f5;
+      padding-left: 1.5rem;
+    }
+  }
+  /* .journal-list {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 4rem;
+    border-left: 1px solid #f4f4f5;
+    padding-left: 1.5rem;
+  } */
+</style>
