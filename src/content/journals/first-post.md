@@ -29,7 +29,7 @@ Vercelにはすでにプロジェクトが1つあるし、Cloudflareはまだ使
 
 ## デザイン
 
-サイトのデザインはTailwind PlusのSpotlightを使用。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。
+サイトのデザインは[Tailwind Plus](https://tailwindcss.com/plus)にある、ミニマルでクリーンな感じの[Spotlight](https://tailwindcss.com/plus/templates/spotlight)を採用。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。
 細かい部分は違うものの、全体の雰囲気はうまく再現できたと思う。
 
 ## コンテンツ
