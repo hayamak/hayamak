@@ -1,5 +1,8 @@
 ---
+// src/pages/journal/[slug].astro
+
 import Layout from "../../layouts/Layout.astro";
+import JournalLayout from "../../components/JournalLayout.astro";
 
 import { getCollection, render } from "astro:content";
 
@@ -21,14 +24,11 @@ const { journal } = Astro.props;
 const { Content } = await render(journal);
 ---
 
-<Layout title={journal.data.title}>
-  <article class="container">
-    <h1>{journal.data.title}</h1>
-
-    <time>
-      {journal.data.pubDate.toLocaleDateString("ja-JP")}
-    </time>
-
+<Layout title={`${journal.data.title} - 羽山`}>
+  <JournalLayout
+    title={journal.data.title}
+    date={journal.data.pubDate.toISOString().slice(0, 10)}
+  >
     <Content />
-  </article>
+  </JournalLayout>
 </Layout>

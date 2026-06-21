@@ -1,0 +1,101 @@
+---
+// src/components/JournalLayout.astro
+
+interface Props {
+  title: string;
+  date: string;
+}
+
+const { title, date } = Astro.props;
+---
+
+<article class="journal-article">
+  <header>
+    <time datetime={date}>{date}</time>
+
+    <h1>{title}</h1>
+  </header>
+
+  <div class="journal-content">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .journal-article {
+    max-width: 42rem;
+    margin-inline: auto;
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .journal-article {
+      margin-top: 8rem;
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  time {
+    order: -1;
+    padding-left: 0.875rem;
+    color: #a1a1aa;
+    font-size: 0.875rem;
+    border-left: 2px solid #e4e4e7;
+  }
+
+  h1 {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: clamp(2.25rem, 6vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .journal-content {
+    margin-top: 4rem;
+  }
+
+  .journal-content :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .journal-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .journal-content :global(p) {
+    margin: 1.5rem 0;
+  }
+
+  .journal-content :global(ul) {
+    padding-left: 1.5rem;
+  }
+
+  .journal-content :global(li + li) {
+    margin-top: 0.5rem;
+  }
+
+  .journal-content :global(a) {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .journal-content :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .journal-content :global(pre) {
+    overflow-x: auto;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #f4f4f5;
+  }
+</style>
