@@ -6,6 +6,7 @@ import XIcon from "../components/icons/XIcon.astro";
 import Instagram from "../components/icons/Instagram.astro";
 import Github from "../components/icons/Github.astro";
 import Photos from "../components/Photos.astro";
+import Profile from "../components/Profile.astro";
 ---
 
 <Layout
@@ -47,8 +48,7 @@ import Photos from "../components/Photos.astro";
         <p>ここに記事を置く予定</p>
       </div>
       <div>
-        <h2>プロフィール</h2>
-        <p>ここに記事を置く予定</p>
+        <Profile />
       </div>
     </div>
   </section>
@@ -76,9 +76,9 @@ import Photos from "../components/Photos.astro";
   }
 
   .home-section {
+    padding-top: 6rem;
     padding-bottom: 4rem;
   }
-
   .home-grid {
     display: grid;
     grid-template-columns: 1fr;

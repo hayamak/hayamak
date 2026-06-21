@@ -1,0 +1,60 @@
+---
+const interests = ["音楽", "スペイン語", "スノーボード", "ジム", "花", "果物"];
+---
+
+<div class="profile-card">
+  <h2>自己紹介</h2>
+
+  <p>
+    音楽、スペイン語、スノーボード、ジム、花や果物など、好きなものを気ままに記録しています。
+  </p>
+
+  <ul>
+    {interests.map((interest) => <li>{interest}</li>)}
+  </ul>
+
+  <a href="/about" class="profile-link">About me</a>
+</div>
+
+<style>
+  .profile-card {
+    border: 1px solid #f4f4f5;
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  p {
+    margin-top: 1rem;
+    color: var(--color-muted);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    border-radius: 999px;
+    background: #f4f4f5;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .profile-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>
