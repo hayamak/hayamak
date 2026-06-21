@@ -1,0 +1,116 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const articles = [
+  {
+    title: "最初の記録",
+    description: "音楽、スペイン語、スノーボードなどについて書いていきます。",
+    date: "2026-06-21",
+    slug: "first-post",
+  },
+];
+---
+
+<Layout
+  title="Journal - 羽山"
+  description="音楽、スペイン語、スノーボードなど、個人的な関心ごとの記録です。"
+>
+  <section class="journal">
+    <div class="container">
+      <div class="journal-header">
+        <h1>あれこれ</h1>
+        <p>
+          音楽、スペイン語、スノーボード、花や果物など思いついた個人的な関心ごとの記録です。
+        </p>
+      </div>
+
+      <div class="article-list">
+        {
+          articles.map((article) => (
+            <article class="article-item">
+              <div class="article-content">
+                <h2>
+                  <a href={`/journal/${article.slug}`}>{article.title}</a>
+                </h2>
+                <time datetime={article.date}>{article.date}</time>
+                <p>{article.description}</p>
+                <a class="read-more" href={`/journal/${article.slug}`}>
+                  Read article
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .journal {
+    padding-block: 4rem;
+  }
+
+  .journal-header {
+    max-width: 640px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .journal-header p {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .article-list {
+    margin-top: 4rem;
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .article-item {
+    border-left: 1px solid #e4e4e7;
+    padding-left: 1.5rem;
+  }
+
+  .article-content h2 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .article-content h2 a {
+    text-decoration: none;
+  }
+
+  .article-content h2 a:hover {
+    color: var(--color-accent);
+  }
+
+  time {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  .article-content p {
+    margin-top: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-accent);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>
