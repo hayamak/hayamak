@@ -1,0 +1,34 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const journals = await getCollection("journals");
+
+  return journals.map((journal) => ({
+    params: {
+      slug: journal.id,
+    },
+    props: {
+      journal,
+    },
+  }));
+}
+
+const { journal } = Astro.props;
+
+const { Content } = await render(journal);
+---
+
+<Layout title={journal.data.title}>
+  <article class="container">
+    <h1>{journal.data.title}</h1>
+
+    <time>
+      {journal.data.pubDate.toLocaleDateString("ja-JP")}
+    </time>
+
+    <Content />
+  </article>
+</Layout>

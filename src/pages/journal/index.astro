@@ -1,0 +1,27 @@
+---
+// src/pages/journal/index.astro
+
+import Layout from "../../layouts/Layout.astro";
+import JournalCard from "../../components/JournalCard.astro";
+
+import { getCollection } from "astro:content";
+
+const journals = await getCollection("journals");
+
+journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout title="あれこれ">
+  <section class="container">
+    {
+      journals.map((journal) => (
+        <JournalCard
+          title={journal.data.title}
+          description={journal.data.description}
+          date={journal.data.pubDate.toISOString()}
+          href={`/journal/${journal.id}`}
+        />
+      ))
+    }
+  </section>
+</Layout>
