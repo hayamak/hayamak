@@ -1,0 +1,78 @@
+---
+// src/components/Footer.astro
+const navItems = [
+  { href: "/about", label: "About" },
+  { href: "/journal", label: "あれこれ" },
+  { href: "/music", label: "Music" },
+  { href: "/snowboard", label: "Snowboard" },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <nav aria-label="Footer navigation">
+        <ul class="footer-nav">
+          {
+            navItems.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <p>
+        &copy; {new Date().getFullYear()} Hayama. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 8rem;
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+    border-top: 1px solid #f4f4f5;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-inner p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>
