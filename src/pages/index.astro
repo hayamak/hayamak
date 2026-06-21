@@ -9,14 +9,13 @@ import Photos from "../components/Photos.astro";
 import Profile from "../components/Profile.astro";
 import JournalCard from "../components/JournalCard.astro";
 
-const journals = [
-  {
-    title: "最初の記録",
-    description: "音楽、スペイン語、スノーボードなどについて書いていきます。",
-    date: "2026-06-21",
-    slug: "first-post",
-  },
-];
+import { getCollection } from "astro:content";
+
+const journals = await getCollection("journals");
+
+journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const recentJournals = journals.slice(0, 4);
 ---
 
 <Layout
@@ -55,12 +54,12 @@ const journals = [
     <div class="container home-grid">
       <div class="journal-list">
         {
-          journals.map((journal) => (
+          recentJournals.map((journal) => (
             <JournalCard
-              title={journal.title}
-              description={journal.description}
-              date={journal.date}
-              href={`/journal/${journal.slug}`}
+              title={journal.data.title}
+              description={journal.data.description}
+              date={journal.data.pubDate.toISOString().slice(0, 10)}
+              href={`/journal/${journal.id}`}
             />
           ))
         }

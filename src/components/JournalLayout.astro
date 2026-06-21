@@ -36,11 +36,10 @@ const { title, date } = Astro.props;
 
 <style>
   .journal-article {
-    max-width: 42rem;
+    width: min(42rem, calc(100% - 3rem));
     margin-inline: auto;
     margin-top: 4rem;
   }
-
   @media (min-width: 1024px) {
     .journal-article {
       margin-top: 8rem;
