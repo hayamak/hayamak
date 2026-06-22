@@ -1,19 +1,40 @@
 ---
-const interests = ["音楽", "スペイン語", "スノーボード", "ジム", "花", "果物"];
+// src/components/Profile.astro
 ---
 
 <div class="profile-card">
-  <h2>自己紹介</h2>
+  <h2>プロフィール</h2>
 
-  <p>
-    音楽、スペイン語、スノーボード、ジム、花や果物など、好きなものを気ままに記録しています。
-  </p>
+  <div class="profile-list">
+    <div class="profile-item">
+      <span class="profile-label">身長</span>
+      <span class="profile-value">170cm</span>
+    </div>
 
-  <ul>
-    {interests.map((interest) => <li>{interest}</li>)}
-  </ul>
+    <div class="profile-item">
+      <span class="profile-label">体重</span>
+      <span class="profile-value">65〜83kg位</span>
+    </div>
 
-  <!-- <a href="/about" class="profile-link">About me</a> -->
+    <div class="profile-item">
+      <span class="profile-label">血液型</span>
+      <span class="profile-value">O型</span>
+    </div>
+    <div class="profile-item">
+      <span class="profile-label">血圧</span>
+      <span class="profile-value">118 / 81</span>
+    </div>
+    <div class="profile-item">
+      <span class="profile-label">視力</span>
+      <span class="profile-value">0.8 / 0.8</span>
+    </div>
+
+    <div class="profile-item">
+      <span class="profile-label">星座</span>
+      <span class="profile-value">魚座</span>
+    </div>
+  </div>
+  <p class="profile-note">※ 2026年3月現在</p>
 </div>
 
 <style>
@@ -28,11 +49,6 @@ const interests = ["音楽", "スペイン語", "スノーボード", "ジム", 
     font-size: 0.875rem;
   }
 
-  p {
-    margin-top: 1rem;
-    color: var(--color-muted);
-  }
-
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -42,19 +58,33 @@ const interests = ["音楽", "スペイン語", "スノーボード", "ジム", 
     list-style: none;
   }
 
-  li {
-    border-radius: 999px;
-    background: #f4f4f5;
-    padding: 0.25rem 0.75rem;
+  .profile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .profile-item {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
+  }
+
+  .profile-label {
+    color: var(--color-muted);
     font-size: 0.875rem;
   }
 
-  .profile-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--color-accent);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
+  .profile-value {
+    color: var(--color-text);
+  }
+
+  .profile-note {
+    margin: 1.5rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    opacity: 0.7;
+    text-align: right;
   }
 </style>

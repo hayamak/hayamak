@@ -29,7 +29,7 @@ npm run dev -- --host
 
 とりあえずベースはできたので、Git commitして、事前に作成しておいたGitHubのhayamakレポジトリにPush。
 
-Cloudflareでアカウントを作成して、Compute > Workers & Pages > Create applicationをクリックして、PagesからGet startedしてImport an existing Git repositoryでGitHub上のhayamakリポジトリを選択。Begin Setupをクリックしてデプロイ完了。
+Cloudflareでアカウントを作成して、Compute > Workers & Pages > Create applicationをクリックして、PagesからGet startedしてImport an existing Git repositoryでGitHub上のhayamakリポジトリを選択。Begin Setupをクリックして完了。
 
 ## デプロイ完了！
 
