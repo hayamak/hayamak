@@ -1,10 +1,10 @@
 ---
 title: ウェブサイトの作成
-description: 最近の技術のキャッチアップを目的に、久しぶりにウェブサイトを作成してみました。
+description: 最近の技術の確認とキャッチアップを目的に、久しぶりにウェブサイトを作成してみました。
 pubDate: 2026-06-21
 ---
 
-最近の技術のキャッチアップを目的に久しぶりにウェブサイトを作成してみました。
+最近の技術の確認とキャッチアップを目的に久しぶりにウェブサイトを作成してみました。
 
 ## 何で作るか
 
@@ -15,8 +15,10 @@ pubDate: 2026-06-21
 - [Astro](https://astro.build/)
 
 まず、静的なコンテンツ中心のサイトでデータベースも不要なので、今回はNext.jsは少しオーバースペックな気がする。
-WordPressの精神的な後継を謳うEmdashは気になるけど、さすがに出たばかり（今日時点でv1.1.34）だから様子見。
-ということでAstroで決定。
+WordPressの精神的な後継を謳うEmdashは気になるけど、さすがにまだ早い（今日時点でv1.1.34）気がして様子見。
+ということでAstroを選択。
+
+しばらくは、コンテンツ管理にCMSは使わずAstro + Markdownのシンプルな構成で行く予定。
 
 ## どこに置くか
 
@@ -25,13 +27,13 @@ Astroで作成したサイトで、無料で利用できるけど、本番でも
 - [Vercel](https://vercel.com)
 - [Cloudflare](https://www.cloudflare.com/)
 
-Vercelにはすでにプロジェクトが1つあるし、Cloudflareはまだ使ったことがなかったので、検証も兼ねてCloudflare Pagesを選択。
+Vercelにはすでにプロジェクトが1つあるし、Cloudflareはまだ使ったことがなかったので、検証も兼ねてCloudflare（Pages）を選択。
 
 ## デザイン
 
-サイトのデザインは[Tailwind Plus](https://tailwindcss.com/plus)にある、ミニマルでクリーンな感じの[Spotlight](https://tailwindcss.com/plus/templates/spotlight)を採用。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。
+サイトのデザインは[Tailwind Plus](https://tailwindcss.com/plus)にある、ミニマルでクリーンな感じの[Spotlight](https://tailwindcss.com/plus/templates/spotlight)を選択。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。
 細かい部分は違うものの、全体の雰囲気はうまく再現できたと思う。
 
 ## コンテンツ
 
-最近の技術のキャッチアップと確認が主目的なので、コンテンツはダミーでも良いっちゃ良いんだけど、それだとすぐに飽きてしまって続かない気がしたので、音楽、スペイン語、スノーボード、ジムなどを中心に自分の関心ごとを記録します。
+最近の技術の確認が主目的なので、コンテンツはダミーでも良いっちゃ良いんだけど、それだとすぐに飽きてしまって続かない気がしたので、音楽、スペイン語、スノーボード、ジムなどを中心に自分の関心ごとを記録します。
