@@ -29,11 +29,11 @@ npm run dev -- --host
 
 とりあえずベースはできたので、Git commitして、事前に作成しておいたGitHubのhayamakレポジトリにPush。
 
-Cloudflareでアカウントを作成して、Compute > Workers & Pages > Get startedからImport an existing Git repositoryから、GitHub上のhayamakリポジトリを選択。Begin Setupをクリックしてデプロイ完了。
+Cloudflareでアカウントを作成して、Compute > Workers & Pages > Create applicationをクリックして、PagesからGet startedしてImport an existing Git repositoryでGitHub上のhayamakリポジトリを選択。Begin Setupをクリックしてデプロイ完了。
 
 ## デプロイ完了！
 
-ここまで日曜日の午後にお酒を飲みながらダラダラやって15分程度。Cloudflare Pagesが発行するURL https://hayamak.pages.dev/ にiPhoneのSafariにURLを入力して、エンターを押したら瞬時にAstroのWelcomeページが表示された。
+ここまで日曜日の午後にお酒を飲みながらダラダラやって15分程度。Cloudflare Pagesが発行するURL https://hayamak.pages.dev/ をiPhoneのSafariに入力して、エンターを押したら瞬時にAstroのWelcomeページが表示された。
 
 もちろん、まだAstroのWelcomeページを表示しているだけなので、コンテンツ量が少ないことも影響していると思う。
 
