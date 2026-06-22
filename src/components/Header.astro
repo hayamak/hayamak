@@ -4,11 +4,11 @@
 import avatarImage from "../assets/profile/avatar.jpg";
 
 const navItems = [
-  { href: "/", label: "Home" },
   { href: "/journal", label: "あれこれ" },
-  { href: "/music", label: "Music" },
-  { href: "/snowboard", label: "Snowboard" },
-  { href: "/about", label: "About" },
+  { href: "/music", label: "音楽" },
+  { href: "/espanol", label: "español" },
+  { href: "/snowboard", label: "スノーボード" },
+  { href: "/gym", label: "ジム" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -19,6 +19,25 @@ const currentPath = Astro.url.pathname;
     <a href="/" class="avatar-link" aria-label="ホーム">
       <img src={avatarImage.src} alt="羽山" class="avatar" />
     </a>
+
+    <button
+      class="mobile-menu-button"
+      type="button"
+      aria-label="メニューを開く"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span>メニュー</span>
+
+      <svg class="chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M4.5 6.5 8 10l3.5-3.5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </button>
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <ul>
@@ -40,6 +59,44 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
   </div>
+  <nav
+    id="mobile-menu"
+    class="mobile-nav"
+    aria-label="Mobile navigation"
+    hidden
+  >
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-header">
+        <p>ナビゲーション</p>
+
+        <button
+          class="mobile-menu-close-button"
+          type="button"
+          aria-label="メニューを閉じる"
+        >
+          ×
+        </button>
+      </div>
+
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  "mobile-nav-link",
+                  currentPath === item.href && "is-active",
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <style>
@@ -58,7 +115,8 @@ const currentPath = Astro.url.pathname;
   }
 
   .avatar-link,
-  .desktop-nav {
+  .desktop-nav,
+  .mobile-menu-button {
     pointer-events: auto;
   }
 
@@ -95,4 +153,151 @@ const currentPath = Astro.url.pathname;
   .nav-link.is-active {
     color: var(--color-accent);
   }
+
+  .mobile-menu-button {
+    display: none;
+    pointer-events: auto;
+    border: 0;
+    border-radius: 999px;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-text);
+    font: inherit;
+    font-size: 0.875rem;
+    box-shadow: 0 8px 24px rgb(24 24 27 / 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  }
+
+  .mobile-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    padding: 2rem 1rem;
+    background: rgb(24 24 27 / 0.4);
+    backdrop-filter: blur(4px);
+    pointer-events: auto;
+  }
+
+  .mobile-nav-panel {
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 64px rgb(24 24 27 / 0.18);
+  }
+
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-nav-header p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  .mobile-menu-close-button {
+    border: 0;
+    background: transparent;
+    color: var(--color-muted);
+    font: inherit;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .mobile-nav ul {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-nav li + li {
+    border-top: 1px solid rgb(24 24 27 / 0.08);
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding-block: 0.9rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .mobile-nav-link.is-active {
+    color: var(--color-accent);
+  }
+
+  .mobile-menu-button[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .chevron {
+    width: 0.75rem;
+    height: 0.75rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  @media (min-width: 641px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
 </style>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>(
+    ".mobile-menu-button",
+  );
+  const closeButton = document.querySelector<HTMLButtonElement>(
+    ".mobile-menu-close-button",
+  );
+  const mobileMenu = document.querySelector<HTMLElement>("#mobile-menu");
+
+  function openMenu() {
+    menuButton?.setAttribute("aria-expanded", "true");
+    menuButton?.setAttribute("aria-label", "メニューを閉じる");
+    mobileMenu?.removeAttribute("hidden");
+  }
+
+  function closeMenu() {
+    menuButton?.setAttribute("aria-expanded", "false");
+    menuButton?.setAttribute("aria-label", "メニューを開く");
+    mobileMenu?.setAttribute("hidden", "");
+  }
+
+  menuButton?.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeButton?.addEventListener("click", closeMenu);
+
+  mobileMenu?.addEventListener("click", (event) => {
+    if (event.target === mobileMenu) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+</script>
