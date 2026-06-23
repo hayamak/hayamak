@@ -1,6 +1,7 @@
 ---
 // src/components/Header.astro
 
+import { Image } from "astro:assets";
 import avatarImage from "../assets/profile/avatar.jpg";
 
 const navItems = [
@@ -17,7 +18,15 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="avatar-link" aria-label="ホーム">
-      <img src={avatarImage.src} alt="羽山" class="avatar" />
+      <Image
+        src={avatarImage}
+        alt={"羽山のアバター"}
+        width={80}
+        height={80}
+        class={"avatar"}
+      />
+
+      <!-- <img src={avatarImage.src} alt="羽山" class="avatar" /> -->
     </a>
 
     <button
@@ -114,7 +123,17 @@ const currentPath = Astro.url.pathname;
     justify-content: space-between;
   }
 
-  .avatar-link,
+  .avatar-link {
+    display: block;
+    padding: 0.125rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 8px 24px rgb(24 24 27 / 0.08),
+      0 0 0 1px rgb(24 24 27 / 0.05);
+    pointer-events: auto;
+  }
+
   .desktop-nav,
   .mobile-menu-button {
     pointer-events: auto;
@@ -122,10 +141,11 @@ const currentPath = Astro.url.pathname;
 
   .avatar {
     display: block;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 999px;
     object-fit: cover;
+    background: #f4f4f5;
   }
 
   .desktop-nav ul {
