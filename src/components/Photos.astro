@@ -1,18 +1,22 @@
 ---
 // src/components/Photos.astro
 import { Picture } from "astro:assets";
-import image1 from "../assets/photos/image-1.jpg";
-import image3 from "../assets/photos/image-3.jpg";
-import image4 from "../assets/photos/image-4.jpg";
-import image5 from "../assets/photos/image-5.jpg";
+import snowTrees from "../assets/photos/snow-trees.jpg";
 import lilly from "../assets/photos/lilly.jpg";
+import summerSonic from "../assets/photos/summer-sonic.jpg";
+import smoothOperator from "../assets/photos/smooth-operator.jpg";
+import goldsGym from "../assets/photos/golds-gym.jpg";
 
 const photos = [
-  { src: image1, alt: "", rotation: "rotate-positive" },
-  { src: lilly, alt: "", rotation: "rotate-negative" },
-  { src: image3, alt: "", rotation: "rotate-positive" },
-  { src: image4, alt: "", rotation: "rotate-positive" },
-  { src: image5, alt: "", rotation: "rotate-negative" },
+  { src: snowTrees, alt: "Snow covered trees", rotation: "rotate-positive" },
+  { src: lilly, alt: "Lilly", rotation: "rotate-negative" },
+  { src: summerSonic, alt: "Summer sonic 2025", rotation: "rotate-positive" },
+  {
+    src: smoothOperator,
+    alt: "Burton Smooth-operator",
+    rotation: "rotate-positive",
+  },
+  { src: goldsGym, alt: "Gold's gym", rotation: "rotate-negative" },
 ];
 ---
 
@@ -22,8 +26,11 @@ const photos = [
       photos.map((photo) => (
         <div class={`photo-frame ${photo.rotation}`}>
           <div class="photo-aspect">
-            <Picture src={photo.src} formats={["avif", "webp"]} alt="" />
-            {/* <img src={photo.src} alt={photo.alt} loading="lazy" /> */}
+            <Picture
+              src={photo.src}
+              formats={["avif", "webp"]}
+              alt={photo.alt}
+            />
           </div>
         </div>
       ))
