@@ -1,0 +1,125 @@
+---
+// src/pages/music/index.astro
+import Layout from "../../layouts/Layout.astro";
+import summerSonic from "../../assets/photos/summer-sonic.jpg";
+---
+
+<Layout title="Music - 羽山和行">
+  <main class="music-page">
+    <div class="container">
+      <div class="music-layout">
+        <div class="music-photo">
+          <img src={summerSonic.src} alt="" />
+        </div>
+
+        <section class="music-content">
+          <h1>No Music, No Life.</h1>
+
+          <div class="music-text">
+            <p>
+              このあまりにも有名なタワーレコードのコーポレート・ボイスを作った人は、天才だと思う。
+            </p>
+
+            <p>
+              タワーレコード（Tower
+              Records）は、アメリカ発祥らしいからてっきりアメリカで作られたキャッチコピーだと思っていた。でも、気になって調べてみたら1996年に日本の博報堂の木村透さんと箭内道彦さんという人が作ったらしい。
+            </p>
+
+            <p>
+              その場の空気に合わせて、聴きやすさと踊りやすさの間を行き来するような選曲が好きです。
+            </p>
+          </div>
+
+          <div class="music-sections">
+            <a href="/music/dj">DJ</a>
+            <a href="/music/playlists">Playlists</a>
+            <a href="/music/favorites">Favorites</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .music-page {
+    padding-block: 4rem;
+  }
+
+  .music-layout {
+    display: grid;
+    gap: 4rem;
+  }
+
+  .music-photo {
+    max-width: 20rem;
+  }
+
+  .music-photo img {
+    aspect-ratio: 1;
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    transform: rotate(3deg);
+    background: #f4f4f5;
+  }
+
+  .music-content {
+    max-width: 40rem;
+  }
+
+  .music-content h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    /* letter-spacing: -0.04em; */
+  }
+
+  .music-text {
+    margin-top: 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .music-text p + p {
+    margin-top: 1.5rem;
+  }
+
+  .music-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .music-sections a {
+    border: 1px solid #e4e4e7;
+    border-radius: 999px;
+    padding: 0.5rem 0.875rem;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .music-sections a:hover {
+    border-color: var(--color-text);
+  }
+
+  @media (min-width: 1024px) {
+    .music-page {
+      padding-block: 8rem;
+    }
+
+    .music-layout {
+      grid-template-columns: 1fr 20rem;
+      align-items: start;
+    }
+
+    .music-photo {
+      order: 2;
+    }
+
+    .music-content {
+      order: 1;
+    }
+  }
+</style>
