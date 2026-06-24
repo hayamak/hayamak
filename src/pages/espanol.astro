@@ -1,0 +1,206 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Mi Español" description="スペイン語学習の記録です。">
+  <main class="espanol-page">
+    <section class="hero">
+      <p class="eyebrow">Spanish learning</p>
+      <h1>Mi Español</h1>
+      <p class="lead">
+        レゲトンをきっかけに、スペイン語を少しずつ勉強しています。
+      </p>
+    </section>
+
+    <section class="intro">
+      <div>
+        <h2>なぜスペイン語？</h2>
+        <p>
+          数年前にレゲトンを好きになってから、歌詞の意味が気になるようになりました。
+          最初はリズムや雰囲気を楽しんでいただけでしたが、少しずつ「この言葉はどういう意味なんだろう」と思うようになりました。
+        </p>
+      </div>
+
+      <figure class="duolingo-shot">
+        <img
+          src="/images/duolingo-espanol.jpg"
+          alt="Duolingoでスペイン語を学習しているスクリーンショット"
+        />
+        <figcaption>Duolingoで毎日少しずつ。</figcaption>
+      </figure>
+    </section>
+
+    <section class="road">
+      <h2>現在の学習方法</h2>
+
+      <div class="steps">
+        <div class="step">
+          <span>01</span>
+          <h3>Duolingo</h3>
+          <p>まずは毎日続けることを大事にしています。</p>
+        </div>
+
+        <div class="step">
+          <span>02</span>
+          <h3>音楽を聴く</h3>
+          <p>
+            Camilo、Bad Bunny、Myke Towersなど、好きな曲から言葉に触れています。
+          </p>
+        </div>
+
+        <div class="step">
+          <span>03</span>
+          <h3>気になった言葉を覚える</h3>
+          <p>favorito、bailar、mañana など、曲で出会った言葉を少しずつ。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="words">
+      <h2>好きなスペイン語</h2>
+
+      <div class="word-list">
+        <span>favorito</span>
+        <span>bailar</span>
+        <span>mañana</span>
+        <span>corazón</span>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .espanol-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 80px 24px 120px;
+  }
+
+  .hero {
+    padding: 72px 0 56px;
+  }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    color: #58a700;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero {
+    max-width: 720px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+  }
+
+  .lead {
+    margin-top: 1.5rem;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+    align-items: center;
+    padding: 56px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  h2 {
+    margin: 0 0 20px;
+    font-size: 1.75rem;
+    letter-spacing: -0.04em;
+  }
+
+  p {
+    line-height: 1.9;
+  }
+
+  .duolingo-shot {
+    margin: 0;
+    padding: 16px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+  }
+
+  .duolingo-shot img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .duolingo-shot figcaption {
+    margin-top: 12px;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .road,
+  .words {
+    padding: 56px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .steps {
+    display: grid;
+    gap: 16px;
+  }
+
+  .step {
+    padding: 24px;
+    border-radius: 24px;
+    background: #f0fdf4;
+  }
+
+  .step span {
+    color: #58a700;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .step h3 {
+    margin: 8px 0;
+    font-size: 1.25rem;
+  }
+
+  .step p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .word-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .word-list span {
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #fff7ed;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 720px) {
+    .espanol-page {
+      padding-top: 40px;
+    }
+
+    .intro {
+      grid-template-columns: 1fr;
+    }
+
+    .duolingo-shot {
+      max-width: 320px;
+    }
+  }
+</style>
