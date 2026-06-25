@@ -9,5 +9,59 @@ import ContentLayout from "../../components/ContentLayout.astro";
   <ContentLayout
     title="スノーボード"
     intro="10月後半から翌年5月末くらいまで。最近はスキー場ではなく、主に山（バックカントリー）で滑っています。"
-  />
+  >
+    <section class="snowboard-intro">
+      <p>
+        川場スキー場のクリスタルコースを滑っていた時に、突然後ろから大きな衝撃を受けて、何が起きたか分からないまま大転倒。
+        どうやら地形の壁から滑り降りてきたスノーボーダーが止まれずぶつかってきたみたい。
+      </p>
+      <p>
+        それ以来、人が多いスキー場のゲレンデより、人が少なく自然の中を滑れるバックカントリーに多く行くようになりました。
+      </p>
+      <p>
+        でも、管理されたスキー場と違ってバックカントリーは、遭難や雪崩に巻き込まれるリスクがあるので、無理はせず安全に楽しむことを心がけています。
+      </p>
+      <p>基本的には一人で行くことが多いので、以下のことを意識しています。</p>
+      <ul class="snowboard-points">
+        <li>天候や視界が悪い日は無理をしない。</li>
+        <li>常に目印が見える、分かりやすいルートを選ぶ。</li>
+        <li>雪崩の危険がある斜面には近づかない。</li>
+        <li>少しでも不安を感じたら引き返す。</li>
+        <li>ルートに不安がある山はガイドツアーに参加する。</li>
+      </ul>
+    </section>
+  </ContentLayout>
 </Layout>
+
+<style>
+  .snowboard-intro {
+    max-width: 42rem;
+    color: var(--color-muted);
+    line-height: 1.9;
+  }
+
+  .snowboard-intro p {
+    margin: 0;
+  }
+
+  .snowboard-intro p + p {
+    margin-top: 1.5rem;
+  }
+
+  .snowboard-points {
+    margin: 1.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .snowboard-points li::marker {
+    color: #a1a1aa;
+  }
+
+  .snowboard-points li {
+    line-height: 1.9;
+  }
+
+  .snowboard-points li + li {
+    margin-top: 0.75rem;
+  }
+</style>
