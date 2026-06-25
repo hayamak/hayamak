@@ -2,8 +2,113 @@
 // src/pages/gym.astro
 import Layout from "../layouts/Layout.astro";
 import ContentLayout from "../components/ContentLayout.astro";
+import { Image } from "astro:assets";
+
+import goldsGym from "../assets/photos/golds-gym.jpg";
+
+const gyms = [
+  {
+    name: "ゴールドジム イースト東京",
+    image: goldsGym,
+    alt: "ゴールドジム イースト東京",
+    description:
+      "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間の壁上部に、歴代の日本男子ボディビル選手権大会優勝者写真が飾られているモチベーションの上がるジム。",
+  },
+  {
+    name: "ジュラシックアカデミー",
+    image: goldsGym,
+    alt: "ジュラシックアカデミー",
+    description:
+      "2024年日本男子ボディビル選手権大会で優勝したジュラシック木澤さんのジム。一時期、筋トレ系ユーチューバーがこぞって脚トレパーソナルの動画を上げていた。自分もパーソナルトレーニングの翌日から数日激しい筋肉痛に。",
+  },
+  {
+    name: "ゴールドジム 札幌大通",
+    image: goldsGym,
+    alt: "ゴールドジム 札幌大通",
+    description:
+      "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間に、歴代の日本選手権チャンピオンの写真が飾られているモチベーションの上がるジム。",
+  },
+  {
+    name: "ゴールドジム 原宿東京",
+    image: goldsGym,
+    alt: "ゴールドジム 原宿東京",
+    description:
+      "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間に、歴代の日本選手権チャンピオンの写真が飾られているモチベーションの上がるジム。",
+  },
+];
 ---
 
 <Layout title="ジム - 羽山">
-  <ContentLayout title="ジム" intro="これまでに通ったジムの記録です。" />
+  <ContentLayout
+    title="ジム"
+    intro="行ったことのある特徴的なジムの記録です。頻度は低いと思いますが、追加があれば更新します。"
+  >
+    <div class="gym-grid">
+      {
+        gyms.map((gym) => (
+          <article class="gym-card">
+            <Image src={gym.image} alt={gym.alt} class="gym-image" />
+            <div class="gym-card-body">
+              <h2>{gym.name}</h2>
+              <p>{gym.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </ContentLayout>
 </Layout>
+
+<style>
+  .gym-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .gym-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e4e4e7;
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .gym-image {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .gym-card-body {
+    flex: 1;
+    padding: 1.25rem;
+  }
+
+  .gym-card h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+
+  .gym-card p {
+    margin: 0.75rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+    line-height: 1.8;
+  }
+
+  @media (min-width: 640px) {
+    .gym-grid {
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gym-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
