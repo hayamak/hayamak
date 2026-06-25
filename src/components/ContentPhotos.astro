@@ -1,0 +1,74 @@
+---
+// src/components/ContentPhotos.astro
+import { Picture } from "astro:assets";
+
+interface Photo {
+  src: ImageMetadata;
+  alt: string;
+  rotation?: "positive" | "negative";
+}
+
+interface Props {
+  photos: readonly Photo[];
+}
+
+const { photos } = Astro.props;
+---
+
+<div class="content-photos">
+  {
+    photos.map((photo) => (
+      <div class={`photo-frame ${photo.rotation ?? "positive"}`}>
+        <div class="photo-aspect">
+          <Picture src={photo.src} formats={["avif", "webp"]} alt={photo.alt} />
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .content-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    max-width: 36rem;
+    margin-top: 3rem;
+  }
+
+  .photo-frame {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: #f4f4f5;
+  }
+
+  .photo-aspect {
+    aspect-ratio: 9 / 10;
+  }
+
+  .photo-aspect img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .positive {
+    transform: rotate(2deg);
+  }
+
+  .negative {
+    transform: rotate(-2deg);
+  }
+
+  @media (min-width: 640px) {
+    .content-photos {
+      gap: 1rem;
+      max-width: 42rem;
+      margin-top: 4rem;
+    }
+
+    .photo-frame {
+      border-radius: 1rem;
+    }
+  }
+</style>

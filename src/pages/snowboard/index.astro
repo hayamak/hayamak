@@ -3,6 +3,17 @@
 
 import Layout from "../../layouts/Layout.astro";
 import ContentLayout from "../../components/ContentLayout.astro";
+import ContentPhotos from "../../components/ContentPhotos.astro";
+
+import snowTrees from "../../assets/photos/snow-trees.jpg";
+import lilly from "../../assets/photos/lilly.jpg";
+import summerSonic from "../../assets/photos/summer-sonic.jpg";
+
+const photos = [
+  { src: snowTrees, alt: "雪に覆われた木々", rotation: "positive" },
+  { src: lilly, alt: "Burton Smooth Operator", rotation: "negative" },
+  { src: summerSonic, alt: "八甲田の雪景色", rotation: "positive" },
+] as const;
 ---
 
 <Layout title="スノーボード - 羽山">
@@ -10,6 +21,7 @@ import ContentLayout from "../../components/ContentLayout.astro";
     title="スノーボード"
     intro="10月後半から翌年5月末くらいまで。最近はスキー場ではなく、主に山（バックカントリー）で滑っています。"
   >
+    <ContentPhotos photos={photos} />
     <section class="snowboard-intro">
       <p>
         川場スキー場のクリスタルコースを滑っていた時に、突然後ろから大きな衝撃を受けて、何が起きたか分からないまま大転倒。
