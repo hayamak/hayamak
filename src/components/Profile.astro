@@ -6,6 +6,7 @@
   <h2>プロフィール</h2>
 
   <div class="profile-list">
+    <p>千葉県南房総市出身、O型、魚座です。</p>
     <div class="profile-item">
       <span class="profile-label">身長</span>
       <span class="profile-value">170cm</span>
@@ -17,21 +18,12 @@
     </div>
 
     <div class="profile-item">
-      <span class="profile-label">血液型</span>
-      <span class="profile-value">O型</span>
-    </div>
-    <div class="profile-item">
       <span class="profile-label">血圧</span>
       <span class="profile-value">118 / 81</span>
     </div>
     <div class="profile-item">
       <span class="profile-label">視力</span>
       <span class="profile-value">0.8 / 0.8</span>
-    </div>
-
-    <div class="profile-item">
-      <span class="profile-label">星座</span>
-      <span class="profile-value">魚座</span>
     </div>
   </div>
   <p class="profile-note">※ 2026年3月現在</p>
@@ -49,20 +41,18 @@
     font-size: 0.875rem;
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.25rem 0 0;
-    padding: 0;
-    list-style: none;
-  }
-
   .profile-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.625rem;
     margin-top: 1.5rem;
+  }
+
+  .profile-list > p {
+    margin: 0 0 0.5rem;
+    color: var(--color-text);
+    line-height: 1.8;
+    font-size: 0.9375rem;
   }
 
   .profile-item {
@@ -81,7 +71,7 @@
   }
 
   .profile-note {
-    margin: 1.5rem 0 0;
+    margin: 1.25rem 0 0;
     color: var(--color-muted);
     font-size: 0.75rem;
     opacity: 0.7;
