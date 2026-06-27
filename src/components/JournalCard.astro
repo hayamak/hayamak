@@ -42,13 +42,14 @@ const { title, description, date, href } = Astro.props;
     color: inherit;
     text-decoration: none;
 
-    transition: background-color 0.2s ease;
-    transform 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
   }
 
   .journal-card:hover {
     background: #fafafa;
-    transform: translateY(-1px);
+    /* transform: translateY(-1px); */
   }
 
   .journal-card:focus-visible {
