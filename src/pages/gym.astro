@@ -5,35 +5,47 @@ import ContentLayout from "../components/ContentLayout.astro";
 import { Image } from "astro:assets";
 
 import goldsGym from "../assets/photos/golds-gym.jpg";
+import goldsGymEastTokyo from "../assets/photos/golds-gym-east-tokyo.jpg";
+import jurassicAcademy from "../assets/photos/jurassic-academy.jpg";
+import bear from "../assets/photos/bear.jpg";
+import goldsGymGinza from "../assets/photos/golds-gym-ginza.jpg";
+import goldsGymSapporo from "../assets/photos/golds-gym-sapporo.jpg";
 
 const gyms = [
   {
     name: "ゴールドジム イースト東京",
-    image: goldsGym,
+    image: goldsGymEastTokyo,
     alt: "ゴールドジム イースト東京",
     description:
       "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間の壁上部に、歴代の日本男子ボディビル選手権大会優勝者写真が飾られているモチベーションの上がるジム。",
   },
   {
     name: "ジュラシックアカデミー",
-    image: goldsGym,
+    image: jurassicAcademy,
     alt: "ジュラシックアカデミー",
     description:
-      "2024年日本男子ボディビル選手権大会で優勝したジュラシック木澤さんのジム。一時期、筋トレ系ユーチューバーがこぞって脚トレパーソナルの動画を上げていた。自分もパーソナルトレーニングの翌日から数日激しい筋肉痛に。",
+      "2024年日本男子ボディビル選手権大会で優勝したジュラシック木澤さんのジム。一時期、筋トレ系ユーチューバーがこぞって脚トレパーソナルの動画を上げていた。自分も脚トレを受けた翌日から数日間激しい筋肉痛になった。",
   },
   {
     name: "ゴールドジム 札幌大通",
-    image: goldsGym,
+    image: goldsGymSapporo,
     alt: "ゴールドジム 札幌大通",
     description:
-      "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間に、歴代の日本選手権チャンピオンの写真が飾られているモチベーションの上がるジム。",
+      "天井が高く体育館のような作りでキレイ。現代的でオシャレなゴールドジム イースト東京って感じ。",
   },
   {
     name: "ゴールドジム 原宿東京",
-    image: goldsGym,
+    image: bear,
     alt: "ゴールドジム 原宿東京",
     description:
-      "アメリカのGold's Gymの日本1号店で日本の“聖地”。体育館のような空間に、歴代の日本選手権チャンピオンの写真が飾られているモチベーションの上がるジム。",
+      "とにかく熊みたいにでかい外人さんがいるイメージ。※写真は大雪山層雲峡・黒岳ロープウェイ山麓駅に展示されているヒグマの剥製。",
+  },
+  {
+    name: "ゴールドジム 銀座東京",
+    image: goldsGymGinza,
+    alt: "ゴールドジム 銀座東京",
+    description:
+      "一番よく通っているジム。広くて設備も充実していて、24時間営業なのも便利。",
   },
 ];
 ---
