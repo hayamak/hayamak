@@ -82,6 +82,15 @@ const { title, date } = Astro.props;
     margin: 1.5rem 0;
   }
 
+  .journal-content :global(img) {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 2.5rem auto;
+    border: 1px solid #f4f4f5;
+    border-radius: 0.75rem;
+  }
+
   .journal-content :global(ul) {
     padding-left: 1.5rem;
   }
