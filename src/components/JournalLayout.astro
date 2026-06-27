@@ -82,6 +82,7 @@ const { title, date } = Astro.props;
     margin: 1.5rem 0;
   }
 
+  /* Markdown images */
   .journal-content :global(img) {
     display: block;
     width: 100%;
@@ -118,6 +119,24 @@ const { title, date } = Astro.props;
     padding: 1rem;
     border-radius: 0.75rem;
     background: #f4f4f5;
+  }
+
+  /* Paired photos */
+  .journal-content :global(.photo-grid) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: min(32rem, 100%);
+    margin: 2.5rem auto;
+  }
+
+  .journal-content :global(.photo-grid img) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
   }
 
   .back-link {
