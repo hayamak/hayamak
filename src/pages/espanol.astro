@@ -1,17 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ContentLayout from "../components/ContentLayout.astro";
+import { Image } from "astro:assets";
 ---
 
-<Layout title="Mi Español" description="スペイン語学習の記録です。">
-  <main class="espanol-page">
-    <section class="hero">
-      <p class="eyebrow">Spanish learning</p>
-      <h1>Mi Español</h1>
-      <p class="lead">
-        レゲトンをきっかけに、スペイン語を少しずつ勉強しています。
-      </p>
-    </section>
-
+<Layout title="Mi Español - 羽山">
+  <ContentLayout
+    title="Mi Español"
+    intro="ラテンアメリカの音楽にハマった時にスペイン語の勉強を始めました。"
+  >
     <section class="intro">
       <div>
         <h2>なぜスペイン語？</h2>
@@ -66,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
         <span>corazón</span>
       </div>
     </section>
-  </main>
+  </ContentLayout>
 </Layout>
 
 <style>

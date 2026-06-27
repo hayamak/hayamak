@@ -5,14 +5,19 @@ import Layout from "../../layouts/Layout.astro";
 import ContentLayout from "../../components/ContentLayout.astro";
 import ContentPhotos from "../../components/ContentPhotos.astro";
 
-import snowTrees from "../../assets/photos/snow-trees.jpg";
-import lilly from "../../assets/photos/lilly.jpg";
-import summerSonic from "../../assets/photos/summer-sonic.jpg";
+import snowMonster from "../../assets/photos/snow-monster.jpg";
+import burtonRunDmc from "../../assets/photos/burton-run-dmc.jpg";
+import myokosan from "../../assets/photos/myokosan.jpg";
 
 const photos = [
-  { src: snowTrees, alt: "雪に覆われた木々", rotation: "negative" },
-  { src: lilly, alt: "Burton Smooth Operator", rotation: "negative" },
-  { src: summerSonic, alt: "八甲田の雪景色", rotation: "positive" },
+  { src: snowMonster, alt: "森吉山の樹氷", rotation: "negative" },
+  {
+    src: burtonRunDmc,
+    alt: "Burton+Run-D.M.C スノーボードの写真",
+    rotation: "negative",
+  },
+
+  { src: myokosan, alt: "ワンカップ妙高山", rotation: "positive" },
 ] as const;
 ---
 
