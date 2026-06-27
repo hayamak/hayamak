@@ -1,15 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContentLayout from "../components/ContentLayout.astro";
+import ContentPhotos from "../components/ContentPhotos.astro";
+
 import { Image } from "astro:assets";
+
+import unVeranoSinTi from "../assets/photos/un-verano-sin-ti.jpg";
+import superBowlXL from "../assets/photos/super-bowl-lx-halftime-show.jpg";
+import myokosan from "../assets/photos/myokosan.jpg";
+
+const photos = [
+  {
+    src: unVeranoSinTi,
+    alt: "Un Verano Sin Tiのジャケット",
+    rotation: "negative",
+  },
+  {
+    src: superBowlXL,
+    alt: "Super Bowl LX Halftime show - Bad Bunny",
+    rotation: "negative",
+  },
+
+  { src: myokosan, alt: "ワンカップ妙高山", rotation: "positive" },
+] as const;
 ---
 
 <Layout title="Mi Español - 羽山">
   <ContentLayout
     title="Mi Español"
-    intro="ラテンアメリカの音楽にハマった時にスペイン語の勉強を始めました。"
+    intro="ラテンアメリカの音楽にハマった時にスペイン語の勉強を始めました。日常でDuolingo以外はスペイン語に触れる機会がなくてまだ喋れる気がしない。"
   >
-    <section class="intro">
+    <ContentPhotos photos={photos} />
+
+    <section></section>
+    <!-- <section class="intro">
       <div>
         <h2>なぜスペイン語？</h2>
         <p>
@@ -62,7 +86,7 @@ import { Image } from "astro:assets";
         <span>mañana</span>
         <span>corazón</span>
       </div>
-    </section>
+    </section> -->
   </ContentLayout>
 </Layout>
 
