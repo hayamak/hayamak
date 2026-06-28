@@ -6,14 +6,13 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
 ---
 
 <Layout title="Music - 羽山和行">
-  <section>
+  <section class="music-page">
     <div class="container">
       <div class="music-layout">
         <div class="music-photo">
           <Image src={miTierra} alt="Apple Musicのスクリーンショット" />
         </div>
-
-        <section class="music-content">
+        <div class="music-content">
           <h1>No Music, No Life.</h1>
           <div class="music-text">
             <p>
@@ -33,7 +32,7 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
               これから先、音楽がどんな形になっていくのかは分からないけど、音楽を好きなことは変わらないと思う。
             </p>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   </section>
@@ -41,7 +40,7 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
 
 <style>
   .music-page {
-    padding-block: 4rem;
+    margin-top: 4rem;
   }
 
   .music-layout {
@@ -53,7 +52,7 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
     max-width: 20rem;
   }
 
-  .music-photo img {
+  .music-photo :global(img) {
     aspect-ratio: 1;
     width: 100%;
     border-radius: 1rem;
@@ -61,7 +60,6 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
     transform: rotate(3deg);
     background: #f4f4f5;
   }
-
   .music-content {
     max-width: 40rem;
   }
@@ -104,7 +102,7 @@ import miTierra from "../../assets/photos/mi-tierra.jpg";
 
   @media (min-width: 1024px) {
     .music-page {
-      padding-block: 8rem;
+      margin-top: 8rem;
     }
 
     .music-layout {
