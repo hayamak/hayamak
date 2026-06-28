@@ -1,5 +1,6 @@
 ---
 // src/components/ContentLayout.astro
+
 interface Props {
   title: string;
   intro: string;
@@ -30,25 +31,31 @@ const { title, intro } = Astro.props;
     max-width: 640px;
   }
 
-  h1 {
+  .content-header h1 {
     margin: 0;
     font-size: clamp(2.25rem, 6vw, 3rem);
     line-height: 1.1;
     letter-spacing: -0.04em;
   }
 
-  p {
+  .content-header p {
     margin-top: 1.5rem;
     color: var(--color-muted);
   }
 
-  .content-body {
+  .content {
     margin-top: 4rem;
   }
 
   @media (min-width: 640px) {
-    .content-body {
+    .content {
       margin-top: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-layout {
+      margin-top: 8rem;
     }
   }
 </style>

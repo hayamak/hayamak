@@ -2,6 +2,7 @@
 // src/pages/journal/index.astro
 
 import Layout from "../../layouts/Layout.astro";
+import ContentLayout from "../../components/ContentLayout.astro";
 import SimpleLayout from "../../components/SimpleLayout.astro";
 import JournalCard from "../../components/JournalCard.astro";
 
@@ -13,7 +14,7 @@ journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="あれこれ">
-  <SimpleLayout
+  <ContentLayout
     title="あれこれ"
     intro="ここでは主にプライベートで日々感じた、思ったあれやこれやを記録します。"
   >
@@ -29,7 +30,7 @@ journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
         ))
       }
     </section>
-  </SimpleLayout>
+  </ContentLayout>
 </Layout>
 
 <style>
