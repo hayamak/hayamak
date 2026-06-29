@@ -15,7 +15,7 @@ pubDate: 2026-06-20
 - [Astro](https://astro.build/)
 
 まず、静的なコンテンツ中心のサイトでデータベースも不要なので、今回はNext.jsは少しオーバースペックな気がする。
-WordPressの精神的な後継を謳うEmdashは気になるけど、さすがにまだ早い（今日時点でv1.1.34）気がして様子見。
+[WordPressの精神的な後継を謳う](https://blog.cloudflare.com/ja-jp/emdash-wordpress/)Emdashは気になるけど、さすがにまだ早い（今日時点でv1.1.34）気がして様子見。
 ということでAstroを選択。
 
 しばらくは、コンテンツ管理にCMSは使わずAstro + Markdownのシンプルな構成で行く予定。
@@ -25,9 +25,10 @@ WordPressの精神的な後継を謳うEmdashは気になるけど、さすが�
 Astroで作成したサイトで、無料で利用できるけど、本番でもちゃんと使える場所がいいので選択肢としては以下かなと。
 
 - [Vercel](https://vercel.com)
+- [Netlify](https://www.netlify.com/)
 - [Cloudflare](https://www.cloudflare.com/)
 
-Vercelにはすでにプロジェクトが1つあるし、Cloudflareはまだ使ったことがなかったので、検証も兼ねてCloudflare（Pages）を選択。
+Vercelにはすでにプロジェクトが1つあるので除外。NetlifyとCloudflareでなんとなくCloudflareを選択。今はAstroもCloudflareの傘下だし。
 
 ## デザイン
 
