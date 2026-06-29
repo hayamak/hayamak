@@ -93,7 +93,21 @@ const { title, date } = Astro.props;
   }
 
   .journal-content :global(ul) {
-    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .journal-content :global(li) {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .journal-content :global(li)::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #a1a1aa;
   }
 
   .journal-content :global(li + li) {
