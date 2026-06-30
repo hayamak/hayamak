@@ -12,7 +12,7 @@ interface Props {
   photos: readonly Photo[];
 }
 
-const { photos } = Astro.props;
+const { photos }: Props = Astro.props;
 ---
 
 <div class="content-photos">
