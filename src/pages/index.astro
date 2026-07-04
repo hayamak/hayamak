@@ -28,7 +28,7 @@ const recentJournals = journals.slice(0, 4);
         <h1>羽山 和行</h1>
         <p>ウェブ技術のキャッチアップのためにこのサイトを作ってみました。</p>
         <p>
-          技術の話題を中心に、音楽、スペイン語、スノーボードやジムなどの関心ごとについて感じたことや考えたことを記録します。
+          技術の話題を中心に、音楽、スペイン語、スノーボードやジムなどの関心ごとについても記録します。
         </p>
         <div class="social-links">
           <a href="#" aria-label="X">
@@ -52,18 +52,21 @@ const recentJournals = journals.slice(0, 4);
 
   <section class="home-section">
     <div class="container home-grid">
-      <div class="journal-list">
-        {
-          recentJournals.map((journal) => (
-            <JournalCard
-              title={journal.data.title}
-              description={journal.data.description}
-              date={journal.data.pubDate.toISOString().slice(0, 10)}
-              href={`/journal/${journal.id}`}
-            />
-          ))
-        }
-      </div>
+      <section>
+        <div class="journal-list">
+          {
+            recentJournals.map((journal) => (
+              <JournalCard
+                title={journal.data.title}
+                description={journal.data.description}
+                date={journal.data.pubDate.toISOString().slice(0, 10)}
+                href={`/journal/${journal.id}`}
+              />
+            ))
+          }
+        </div>
+        <a class="journal-more" href="/journal"> すべて見る → </a>
+      </section>
       <div>
         <Profile />
       </div>
@@ -144,6 +147,18 @@ const recentJournals = journals.slice(0, 4);
     padding-top: 1.5rem;
   }
 
+  .journal-more {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .journal-more:hover,
+  .journal-more:focus-visible {
+    color: var(--color-text);
+  }
   @media (min-width: 768px) {
     .home-grid {
       grid-template-columns: 1fr 1fr;
