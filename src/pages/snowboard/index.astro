@@ -2,7 +2,7 @@
 // src/pages/snowboard/index.astro
 
 import Layout from "../../layouts/Layout.astro";
-import ContentLayout from "../../components/ContentLayout.astro";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 import ContentPhotos from "../../components/ContentPhotos.astro";
 
 import snowMonster from "../../assets/photos/snow-monster.jpg";
@@ -22,10 +22,10 @@ const photos = [
 ---
 
 <Layout title="スノーボード - 羽山">
-  <ContentLayout
-    title="スノーボード"
-    intro="10月後半から翌年5月末くらいまで。最近はスキー場ではなく、主に山（バックカントリー）で滑っています。"
-  >
+  <ContentLayout title="スノーボード">
+    <Fragment slot={"intro"}>
+      10月後半から翌年5月末くらいまで。最近はスキー場ではなく、主に山（バックカントリー）で滑っています。
+    </Fragment>
     <ContentPhotos photos={photos} />
     <section class="snowboard-intro">
       <p>

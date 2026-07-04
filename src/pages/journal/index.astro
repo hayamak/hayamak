@@ -2,7 +2,7 @@
 // src/pages/journal/index.astro
 
 import Layout from "../../layouts/Layout.astro";
-import ContentLayout from "../../components/ContentLayout.astro";
+import ContentLayout from "../../layouts/ContentLayout.astro";
 import JournalCard from "../../components/JournalCard.astro";
 
 import { getCollection } from "astro:content";
@@ -13,10 +13,10 @@ journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="あれこれ">
-  <ContentLayout
-    title="あれこれ"
-    intro="ここでは主にプライベートで日々感じた、思ったあれやこれやを記録します。"
-  >
+  <ContentLayout title="あれこれ">
+    <Fragment slot={"intro"}>
+      ここに技術の話題を中心に、音楽、スペイン語、スノーボードやジムなどの関心ごとについてあれこれ記録します。
+    </Fragment>
     <section class="journal-list">
       {
         journals.map((journal) => (

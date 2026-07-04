@@ -1,7 +1,8 @@
 ---
 // src/pages/gym.astro
 import Layout from "../layouts/Layout.astro";
-import ContentLayout from "../components/ContentLayout.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
+
 import { Image } from "astro:assets";
 
 import goldsGymEastTokyo from "../assets/photos/golds-gym-east-tokyo.jpg";
@@ -50,10 +51,10 @@ const gyms = [
 ---
 
 <Layout title="ジム - 羽山">
-  <ContentLayout
-    title="ジム"
-    intro="行ったことのある特徴的なジムの記録です。頻度は低いと思いますが、追加があれば更新します。"
-  >
+  <ContentLayout title="ジム">
+    <Fragment slot={"intro"}>
+      行ったことのある特徴的なジムの記録です。頻度は低いと思いますが、追加があれば更新します。
+    </Fragment>
     <div class="gym-grid">
       {
         gyms.map((gym) => (
