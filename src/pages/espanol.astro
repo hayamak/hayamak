@@ -28,14 +28,16 @@ const photos = [
   <ContentLayout title="Mi Español">
     <Fragment slot={"intro"}>
       たしかジムで<em>LALA - Myke Towers</em
-      >が流れてきたのをきっかけに、ラテンアメリカの音楽にハマり、スペイン語の勉強を始めました。
+      >が流れてきたのをきっかけに、一時期ラテンアメリカの音楽にハマった。その時にスペイン語の勉強を始めました。
     </Fragment>
     <ContentPhotos photos={photos} />
 
     <section class="espanol-content">
       <p>
         今は生成AIに聞けばすぐに日本語から他の言語に、他の言語から日本語に翻訳してくれるのでわざわざ外国語を学ばなくても生活するのに支障はないし海外に行っても困ることはないと思う。
-        自分の場合、スペイン語の勉強は完全に趣味。Duolingoで移動中のちょっとした時間に勉強できるが便利。でも、日常でDuolingo以外ではスペイン語に触れる機会がなくてまだ会話ができる気はしない。
+      </p>
+      <p>
+        自分の場合、スペイン語の勉強は完全に趣味。Duolingoで移動中のちょっとした時間に勉強できるのが便利。でも、日常でDuolingo以外ではスペイン語に触れる機会がなくてまだ会話ができる気はしない。
       </p>
       <p>
         2026年2月のSuper Bowl
@@ -68,7 +70,7 @@ const photos = [
 <style>
   .espanol-content {
     max-width: 42rem;
-    color: var(--color-muted);
+    color: var(--color-text);
     line-height: 1.9;
   }
 
@@ -97,7 +99,7 @@ const photos = [
     display: block;
     width: 100%;
     border-radius: 1rem;
-    border: 1px solid #f4f4f5;
+    border: 1px solid var(--color-border);
   }
 
   .youtube-play {
