@@ -28,6 +28,12 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="color-scheme" content="light dark" />
+
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, Astro.site).toString()}
+    />
+
     <title>{title}</title>
   </head>
   <body>
