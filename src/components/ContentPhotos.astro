@@ -16,28 +16,44 @@ interface Props {
 const { photos }: Props = Astro.props;
 ---
 
-<div class="content-photos">
-  {
-    photos.map((photo) => (
-      <div class={`photo-frame ${photo.rotation ?? "positive"}`}>
-        <div class="photo-aspect">
-          <Picture src={photo.src} formats={["avif", "webp"]} alt={photo.alt} />
+<div class="content-photos-viewport">
+  <div class="content-photos">
+    {
+      photos.map((photo) => (
+        <div class={`photo-frame ${photo.rotation ?? "positive"}`}>
+          <div class="photo-aspect">
+            <Picture
+              src={photo.src}
+              formats={["avif", "webp"]}
+              alt={photo.alt}
+            />
+          </div>
         </div>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
 </div>
 
 <style>
-  .content-photos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    max-width: 36rem;
+  .content-photos-viewport {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    overflow: hidden;
     margin-block: 3rem;
   }
 
+  .content-photos {
+    display: flex;
+    justify-content: center;
+    gap: 0.875rem;
+
+    padding-block: 1rem;
+    margin-block: -1rem;
+  }
+
   .photo-frame {
+    flex: none;
+    width: clamp(8rem, 34vw, 11rem);
     overflow: hidden;
     border-radius: 0.75rem;
     background: #f4f4f5;
@@ -69,13 +85,20 @@ const { photos }: Props = Astro.props;
   }
 
   @media (min-width: 640px) {
-    .content-photos {
-      gap: 1rem;
-      max-width: 42rem;
+    .content-photos-viewport {
+      width: auto;
+      margin-inline: 0;
+      overflow: visible;
       margin-block: 4rem;
     }
 
+    .content-photos {
+      gap: 1.5rem;
+      max-width: 42rem;
+    }
+
     .photo-frame {
+      width: 13rem;
       border-radius: 1rem;
     }
   }
