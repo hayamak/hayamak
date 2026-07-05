@@ -53,7 +53,7 @@ Sitemap: https://hayama.me/sitemap-index.xml
 
 Google Search Consoleでドメインプロパティとして`hayama.me`を登録。
 
-Cloudflareとの連携を選択すると、Googleが必要なTXTレコードをCloudflareへ自動で追加してくれた。
+Cloudflareとの連携を承認すると、Googleが必要なTXTレコードをCloudflareへ自動で追加してくれた。
 
 最後にサイトマップとして`sitemap-index.xml`を送信して完了。✅
 
