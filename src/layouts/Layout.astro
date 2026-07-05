@@ -34,6 +34,29 @@ const {
       href={new URL(Astro.url.pathname, Astro.site).toString()}
     />
 
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content={new URL(Astro.url.pathname, Astro.site).toString()}
+    />
+    <meta
+      property="og:image"
+      content={new URL("/ogp.png", Astro.site).toString()}
+    />
+    <meta property="og:image:alt" content="Hayama のホームページ" />
+    <meta property="og:site_name" content="Hayama" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={new URL("/ogp.png", Astro.site).toString()}
+    />
+    <meta name="twitter:image:alt" content="Hayama のホームページ" />
+
     <title>{title}</title>
   </head>
   <body>
