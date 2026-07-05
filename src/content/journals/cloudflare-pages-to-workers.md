@@ -1,12 +1,12 @@
 ---
 title: Cloudflare PagesからWorkersへ移行
-description: Cloudflareは将来的にPagesをWorkersへ統合する予定で、新規プロジェクトでは静的サイトもWorkersへのデプロイが推奨されています。Astroサイトのデプロイ先をPagesからWorkersへ移行し、その手順と移行時に遭遇した問題をまとめました。
+description: Cloudflareは将来的にPagesをWorkersへ統合する予定で、新規プロジェクトでは静的サイトもWorkersへのデプロイが推奨されている。サイトのデプロイ先をPagesからWorkersへ移行しました。
 pubDate: 2026-06-30
 ---
 
 ## 移行準備
 
-静的サイトだからCloudflareでのデプロイ先はPagesだろうと思っていた。ところが、Cloudflareは<a href="https://docs.astro.build/en/guides/deploy/cloudflare/" target="_blank" rel="noopener noreferrer">静的サイトでもWorkersへのデプロイを推奨</a>していた。将来的にPagesはWorkersへ統合する方針のようだ。そこで、今のうちにWorkersに移行しておこうと思う。
+静的サイトだからCloudflareでのデプロイ先はPagesだろうと思っていた。ところが、Cloudflareは<a href="https://docs.astro.build/en/guides/deploy/cloudflare/" target="_blank" rel="noopener noreferrer">静的サイトでもWorkersへのデプロイを推奨</a>していた。将来的にPagesはWorkersへ統合する方針みたい。そこで、今のうちにWorkersに移行しておこうと思う。
 
 まずはwrangler.jsoncが必要なのでプロジェクトのルートで以下を実行する。
 

@@ -4,19 +4,20 @@ import Layout from "../layouts/Layout.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
 import ContentPhotos from "../components/ContentPhotos.astro";
 
+import mykeTowers from "../assets/photos/myke-towers.jpg";
 import unVeranoSinTi from "../assets/photos/un-verano-sin-ti.jpg";
-import superBowlXL from "../assets/photos/super-bowl-lx-halftime-show.jpg";
 import duolingo from "../assets/photos/duolingo.jpg";
 
 const photos = [
   {
-    src: unVeranoSinTi,
-    alt: "Un Verano Sin Ti - Bad Bunny",
+    src: mykeTowers,
+    alt: "La Vida es Una",
     rotation: "negative",
   },
+
   {
-    src: superBowlXL,
-    alt: "Super Bowl LX Halftime show - Bad Bunny",
+    src: unVeranoSinTi,
+    alt: "Un Verano Sin Ti - Bad Bunny",
     rotation: "negative",
   },
 
@@ -28,7 +29,7 @@ const photos = [
   <ContentLayout title="Mi Español">
     <Fragment slot={"intro"}>
       たしかジムで<em>LALA - Myke Towers</em
-      >が流れてきたのをきっかけに、一時期ラテンアメリカの音楽にハマった。その時にスペイン語の勉強を始めました。
+      >が流れてきたのをきっかけに、一時期ラテンアメリカの音楽にハマっていた。その時にスペイン語の勉強を始めました。
     </Fragment>
     <ContentPhotos photos={photos} />
 
