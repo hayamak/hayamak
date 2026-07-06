@@ -10,37 +10,42 @@ const { title, date } = Astro.props;
 ---
 
 <article class="journal-article">
-  <a href="/journal" class="back-link">
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-      <path
-        d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"></path>
-    </svg>
+  <div class="container">
+    <div class="journal-inner">
+      <a href="/journal" class="back-link">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
 
-    <span>一覧へ戻る</span>
-  </a>
+        <span>一覧へ戻る</span>
+      </a>
 
-  <header>
-    <time datetime={date}>{date}</time>
+      <header>
+        <time datetime={date}>{date}</time>
 
-    <h1>{title}</h1>
-  </header>
+        <h1>{title}</h1>
+      </header>
 
-  <div class="journal-content">
-    <slot />
+      <div class="journal-content">
+        <slot />
+      </div>
+    </div>
   </div>
 </article>
 
 <style>
   .journal-article {
-    width: min(42rem, calc(100% - 3rem));
-    margin-inline: auto;
     margin-top: 4rem;
   }
 
+  .journal-inner {
+    max-width: var(--journal-width);
+  }
   header {
     display: flex;
     flex-direction: column;
