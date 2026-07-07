@@ -7,14 +7,14 @@ pubDate: 2026-06-21
 ## 開発環境の構築
 
 まずはプロジェクト用のディレクトリを作成し、VS Codeで開いて .devcontainer ディレクトリを作成しました。
-最近は開発環境をコンテナで統一することが多いため、devcontainer.json と Dockerfile を用意してコンテナ内で作業を進めます。
+最近は開発環境をコンテナで統一することが多いため、devcontainer.json と Dockerfile を用意してコンテナ内で作業を進める。
 
 ## Astroのインストール
 
 コンテナ内のプロジェクトルートでAstroをインストール。
 
 ```sh
-npm create astro@latest .
+npm create astro@latest
 ```
 
 そして、開発サーバーを起動
@@ -27,13 +27,13 @@ npm run dev -- --host
 
 ## Cloudflare Pagesへのデプロイ
 
-とりあえずベースはできたので、Git commitして、事前に作成しておいたGitHubのhayamakレポジトリにPush。
+とりあえずベースはできたので、コミットして、事前に作成しておいたGitHubのhayamakレポジトリにPush。
 
 Cloudflareでアカウントを作成して、Compute > Workers & Pages > Create applicationをクリックして、PagesからGet startedしてImport an existing Git repositoryでGitHub上のhayamakリポジトリを選択。Begin Setupをクリックして完了。
 
 ## デプロイ完了！
 
-ここまで日曜日の午後にお酒を飲みながらダラダラやって15分程度。Cloudflare Pagesが発行するURL https://hayamak.pages.dev/ をiPhoneのSafariに入力して、エンターを押したら瞬時にAstroのWelcomeページが表示された。
+ここまで日曜日の午後にお酒を飲みながらダラダラやって15分程度。Cloudflare Pagesが発行したURLをiPhoneのSafariに入力して、エンターを押したら瞬時にAstroのWelcomeページが表示された。
 
 もちろん、まだAstroのWelcomeページを表示しているだけなので、コンテンツ量が少ないことも影響していると思う。
 
