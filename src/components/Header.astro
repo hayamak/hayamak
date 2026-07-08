@@ -1,9 +1,6 @@
 ---
 // src/components/Header.astro
 
-import { Image } from "astro:assets";
-import avatarImage from "../assets/profile/avatar.jpg";
-
 const navItems = [
   { href: "/journal", label: "あれこれ" },
   { href: "/music", label: "音楽" },
@@ -17,16 +14,8 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="avatar-link" aria-label="ホーム">
-      <Image
-        src={avatarImage}
-        alt={"羽山のアバター"}
-        width={80}
-        height={80}
-        class={"avatar"}
-      />
-
-      <!-- <img src={avatarImage.src} alt="羽山" class="avatar" /> -->
+    <a href="/" class="logo-link" aria-label="ホーム">
+      <img src="/logo.svg" alt="Hayama" width="32" height="32" />
     </a>
 
     <button
@@ -123,7 +112,7 @@ const currentPath = Astro.url.pathname;
     justify-content: space-between;
   }
 
-  .avatar-link {
+  /* .avatar-link {
     display: block;
     padding: 0.125rem;
     border-radius: 999px;
@@ -132,21 +121,41 @@ const currentPath = Astro.url.pathname;
       0 8px 24px rgb(24 24 27 / 0.08),
       0 0 0 1px rgb(24 24 27 / 0.05);
     pointer-events: auto;
-  }
+  } */
 
   .desktop-nav,
   .mobile-menu-button {
     pointer-events: auto;
   }
 
-  .avatar {
+  .logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 8px 24px rgb(24 24 27 / 0.08),
+      0 0 0 1px rgb(24 24 27 / 0.05);
+    pointer-events: auto;
+  }
+
+  .logo-link img {
+    display: block;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  /* .avatar {
     display: block;
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 999px;
     object-fit: cover;
     background: #f4f4f5;
-  }
+  } */
 
   .desktop-nav ul {
     display: flex;
