@@ -2,6 +2,7 @@
 // src/components/Header.astro
 
 const navItems = [
+  { href: "/", label: "ホーム" },
   { href: "/journal", label: "あれこれ" },
   { href: "/music", label: "音楽" },
   { href: "/espanol", label: "Español" },
@@ -10,14 +11,18 @@ const navItems = [
 ];
 
 const currentPath = Astro.url.pathname;
+
+const isActivePath = (href: string) => {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath === href || currentPath.startsWith(`${href}/`);
+};
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="logo-link" aria-label="ホーム">
-      <img src="/logo.svg" alt="Hayama" width="32" height="32" />
-    </a>
-
     <button
       class="mobile-menu-button"
       type="button"
@@ -46,7 +51,7 @@ const currentPath = Astro.url.pathname;
                 href={item.href}
                 class:list={[
                   "nav-link",
-                  currentPath === item.href && "is-active",
+                  isActivePath(item.href) && "is-active",
                 ]}
               >
                 {item.label}
@@ -84,7 +89,7 @@ const currentPath = Astro.url.pathname;
                 href={item.href}
                 class:list={[
                   "mobile-nav-link",
-                  currentPath === item.href && "is-active",
+                  isActivePath(item.href) && "is-active",
                 ]}
               >
                 {item.label}
@@ -109,53 +114,13 @@ const currentPath = Astro.url.pathname;
   .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
-
-  /* .avatar-link {
-    display: block;
-    padding: 0.125rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow:
-      0 8px 24px rgb(24 24 27 / 0.08),
-      0 0 0 1px rgb(24 24 27 / 0.05);
-    pointer-events: auto;
-  } */
 
   .desktop-nav,
   .mobile-menu-button {
     pointer-events: auto;
   }
-
-  .logo-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow:
-      0 8px 24px rgb(24 24 27 / 0.08),
-      0 0 0 1px rgb(24 24 27 / 0.05);
-    pointer-events: auto;
-  }
-
-  .logo-link img {
-    display: block;
-    width: 1.75rem;
-    height: 1.75rem;
-  }
-
-  /* .avatar {
-    display: block;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 999px;
-    object-fit: cover;
-    background: #f4f4f5;
-  } */
 
   .desktop-nav ul {
     display: flex;
@@ -197,6 +162,10 @@ const currentPath = Astro.url.pathname;
   }
 
   @media (max-width: 640px) {
+    .header-inner {
+      justify-content: flex-end;
+    }
+
     .desktop-nav {
       display: none;
     }
