@@ -32,8 +32,7 @@ Vercelにはすでにプロジェクトが1つあるので除外。NetlifyとClo
 
 ## デザイン
 
-サイトのデザインは<a href="https://tailwindcss.com/plus" target="_blank" rel="noopener noreferrer">Tailwind Plus</a>にある、ミニマルでクリーンな感じの<a href="https://tailwindcss.com/plus/templates/spotlight" target="_blank" rel="noopener noreferrer">Spotlight</a>を選択。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。
-細かい部分は違うものの、全体の雰囲気はうまく再現できたと思う。
+サイトのデザインは<a href="https://tailwindcss.com/plus" target="_blank" rel="noopener noreferrer">Tailwind Plus</a>にある、ミニマルでクリーンな感じの<a href="https://tailwindcss.com/plus/templates/spotlight" target="_blank" rel="noopener noreferrer">Spotlight</a>を選択。SpotlightはNext.js + Tailwind CSS + MDXで作成されているので、これをChatGPTでシンプルなAstro + Vanilla CSS + Markdownに変換してもらった。全体の雰囲気はうまく再現できていると思う。
 
 ## コンテンツ
 
