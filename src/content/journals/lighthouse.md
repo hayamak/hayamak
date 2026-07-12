@@ -26,12 +26,12 @@ Accessibilityの改善点を確認すると、日付や注釈の文字色が薄�
 
 ## 表示速度
 
-表示速度といえば定番なので、<a href="https://abehiroshi.la.coocan.jp/" target="_blank" rel="noopener noreferrer">阿部寛さんのホームページ</a>とも比較してみた。
+表示速度といえば定番なので、<a href="https://abehiroshi.la.coocan.jp/" target="_blank" rel="noopener noreferrer">阿部寛さんのホームページ</a>とも比較してみた。もちろん、勝てるわけはないけど、比較してみた。
 
 |項目|hayama.me|阿部 寛|
 |---|---:|---:|
 |Requests|10|5|
-|Transfered|808kB|38.2kB|
+|Transferred|808kB|38.2kB|
 |Resources|843kB|37kB|
 |Load|215ms|74ms|
 
