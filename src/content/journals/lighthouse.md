@@ -19,7 +19,7 @@ Accessibilityが少し低い。
 
 Accessibilityの改善点を確認すると、日付や注釈の文字色が薄すぎることだったので、少しだけ濃くしたら100点になった。見た目はほとんど変わらないけど、こういう細かいところまで見ているんだなと思った。
 
-![Lighthouse](../../assets/journals/lighthouse-result.png)
+![Lighthouse result](../../assets/journals/lighthouse-result.png)
 
 ## 表示速度
 

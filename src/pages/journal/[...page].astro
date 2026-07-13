@@ -1,0 +1,78 @@
+---
+// src/pages/journal/[...page].astro
+
+import Layout from "../../layouts/Layout.astro";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import JournalCard from "../../components/JournalCard.astro";
+
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const journals = await getCollection("journals");
+
+  // 日付順にソート
+  journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+  
+  // 1ページあたり10件に分割
+  return paginate(journals, { pageSize: 3 });
+
+}) satisfies GetStaticPaths; // satisfies で型を適用
+
+// Astro.props から page オブジェクトを受け取る
+const {page} = Astro.props
+---
+
+<Layout title="あれこれ">
+  <ContentLayout title="あれこれ">
+    <Fragment slot={"intro"}>
+      技術の話題を中心に、音楽、スペイン語、スノーボードやジムなどの関心ごとについてあれこれ記録します。
+    </Fragment>
+    <section class="journal-list">
+      {
+        page.data.map((journal) => (
+          <JournalCard
+            title={journal.data.title}
+            description={journal.data.description}
+            date={journal.data.pubDate.toISOString().slice(0, 10)}
+            href={`/journal/${journal.id}`}
+          />
+        ))
+      }
+    </section>
+    
+    <!-- ナビゲーション -->
+    <nav class="pagination">
+      {page.url.prev && <a href={page.url.prev}>← 前へ</a>}
+      <span>{page.currentPage} / {page.lastPage}</span>
+      {page.url.next && <a href={page.url.next}>次へ →</a>}
+    </nav>
+
+    
+
+  </ContentLayout>
+</Layout>
+
+<style>
+  .journal-list {
+    display: flex;
+    max-width: 48rem;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .journal-list {
+      border-left: 1px solid #f4f4f5;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    max-width: 48rem;
+    margin-top: 2rem;
+  }
+
+</style>
