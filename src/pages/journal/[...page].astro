@@ -15,7 +15,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
   
   // 1ページあたり10件に分割
-  return paginate(journals, { pageSize: 3 });
+  return paginate(journals, { pageSize: 10 });
 
 }) satisfies GetStaticPaths; // satisfies で型を適用
 
