@@ -19,20 +19,17 @@ Accessibilityが少し低い。
 
 Accessibilityの改善点を確認すると、日付や注釈の文字色が薄すぎることだったので、少しだけ濃くしたら100点になった。見た目はほとんど変わらないけど、こういう細かいところまで見ているんだなと思った。
 
-- Performance: 99
-- Accessibility: 100
-- Best Practices: 100
-- SEO: 100
+![Lighthouse](../../assets/journals/lighthouse-result.png)
 
 ## 表示速度
 
-表示速度といえば定番なので、<a href="https://abehiroshi.la.coocan.jp/" target="_blank" rel="noopener noreferrer">阿部寛さんのホームページ</a>とも比較してみた。もちろん、勝てるわけはないけど。
+表示速度といえばお約束で、<a href="https://abehiroshi.la.coocan.jp/" target="_blank" rel="noopener noreferrer">阿部寛さんのホームページ</a>と比較してみた。もちろん、勝てるわけはないけど。
 
-|項目|hayama.me|阿部 寛|
-|---|---:|---:|
-|Requests|10|5|
-|Transferred|808kB|38.2kB|
-|Resources|843kB|37kB|
-|Load|215ms|74ms|
+|項目|阿部寛|羽山和行|
+|:---|---:|---:|
+|Requests|5|10|
+|Transferred|38.2kB|808kB|
+|Resources|37kB|843kB|
+|Load|74ms|215ms|
 
 まだ改善できるところはありそうだけど、一旦はここまで。十分かな。
