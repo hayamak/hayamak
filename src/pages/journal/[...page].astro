@@ -13,14 +13,13 @@ export const getStaticPaths = (async ({ paginate }) => {
 
   // 日付順にソート
   journals.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-  
+
   // 1ページあたり10件に分割
   return paginate(journals, { pageSize: 10 });
-
 }) satisfies GetStaticPaths; // satisfies で型を適用
 
 // Astro.props から page オブジェクトを受け取る
-const {page} = Astro.props
+const { page } = Astro.props;
 ---
 
 <Layout title="あれこれ">
@@ -40,16 +39,39 @@ const {page} = Astro.props
         ))
       }
     </section>
-    
+
     <!-- ナビゲーション -->
-    <nav class="pagination">
-      {page.url.prev && <a href={page.url.prev}>← 前へ</a>}
-      <span>{page.currentPage} / {page.lastPage}</span>
-      {page.url.next && <a href={page.url.next}>次へ →</a>}
+    <nav class="pagination" aria-label="Journalのページ送り">
+      <div class="pagination-side">
+        {
+          page.url.prev && (
+            <a href={page.url.prev} class="pagination-link">
+              <span class="arrow" aria-hidden="true">
+                ←
+              </span>
+              前へ
+            </a>
+          )
+        }
+      </div>
+
+      <span class="pagination-status">
+        {page.currentPage} / {page.lastPage}
+      </span>
+
+      <div class="pagination-side pagination-side-next">
+        {
+          page.url.next && (
+            <a href={page.url.next} class="pagination-link">
+              次へ
+              <span class="arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+          )
+        }
+      </div>
     </nav>
-
-    
-
   </ContentLayout>
 </Layout>
 
@@ -61,18 +83,65 @@ const {page} = Astro.props
     gap: 4rem;
   }
 
+  .pagination {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    max-width: 48rem;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid #f4f4f5;
+  }
+
+  .pagination-side {
+    display: flex;
+  }
+
+  .pagination-side-next {
+    justify-content: flex-end;
+  }
+
+  .pagination-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+  }
+
+  .pagination-link:hover {
+    color: var(--color-text);
+  }
+
+  .pagination-link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .pagination-status {
+    color: var(--color-muted);
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .arrow {
+    color: #a1a1aa;
+  }
+
+  .pagination-link:hover .arrow {
+    color: currentColor;
+  }
+
   @media (min-width: 768px) {
     .journal-list {
       border-left: 1px solid #f4f4f5;
       padding-left: 1.5rem;
     }
   }
-
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    max-width: 48rem;
-    margin-top: 2rem;
-  }
-
 </style>
