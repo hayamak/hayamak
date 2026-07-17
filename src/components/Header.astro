@@ -1,6 +1,8 @@
 ---
 // src/components/Header.astro
 
+import ThemeIcon from "./ThemeIcon.astro";
+
 const navItems = [
   { href: "/", label: "ホーム" },
   { href: "/journal", label: "あれこれ" },
@@ -53,6 +55,7 @@ const isActivePath = (href: string) => {
                   "nav-link",
                   isActivePath(item.href) && "is-active",
                 ]}
+                aria-current={isActivePath(item.href) ? "page" : undefined}
               >
                 {item.label}
               </a>
@@ -61,6 +64,7 @@ const isActivePath = (href: string) => {
         }
       </ul>
     </nav>
+    <ThemeIcon />
   </div>
   <nav
     id="mobile-menu"
@@ -91,6 +95,7 @@ const isActivePath = (href: string) => {
                   "mobile-nav-link",
                   isActivePath(item.href) && "is-active",
                 ]}
+                aria-current={isActivePath(item.href) ? "page" : undefined}
               >
                 {item.label}
               </a>
@@ -103,6 +108,10 @@ const isActivePath = (href: string) => {
 </header>
 
 <style>
+  :global(html.is-menu-open) {
+    overflow: hidden;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -115,6 +124,7 @@ const isActivePath = (href: string) => {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
   }
 
   .desktop-nav,
@@ -128,8 +138,9 @@ const isActivePath = (href: string) => {
     margin: 0;
     padding: 0.25rem;
     list-style: none;
+    border: 1px solid var(--color-border);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--color-surface);
     box-shadow: 0 8px 24px rgb(24 24 27 / 0.08);
   }
 
@@ -151,10 +162,10 @@ const isActivePath = (href: string) => {
   .mobile-menu-button {
     display: none;
     pointer-events: auto;
-    border: 0;
+    border: 1px solid var(--color-border);
     border-radius: 999px;
     padding: 0.6rem 0.9rem;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--color-surface);
     color: var(--color-text);
     font: inherit;
     font-size: 0.875rem;
@@ -188,9 +199,10 @@ const isActivePath = (href: string) => {
   }
 
   .mobile-nav-panel {
+    border: 1px solid var(--color-border);
     border-radius: 1.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--color-surface);
     box-shadow: 0 24px 64px rgb(24 24 27 / 0.18);
   }
 
@@ -222,7 +234,7 @@ const isActivePath = (href: string) => {
   }
 
   .mobile-nav li + li {
-    border-top: 1px solid rgb(24 24 27 / 0.08);
+    border-top: 1px solid var(--color-border);
   }
 
   .mobile-nav-link {
@@ -267,12 +279,14 @@ const isActivePath = (href: string) => {
     menuButton?.setAttribute("aria-expanded", "true");
     menuButton?.setAttribute("aria-label", "メニューを閉じる");
     mobileMenu?.removeAttribute("hidden");
+    document.documentElement.classList.add("is-menu-open");
   }
 
   function closeMenu() {
     menuButton?.setAttribute("aria-expanded", "false");
     menuButton?.setAttribute("aria-label", "メニューを開く");
     mobileMenu?.setAttribute("hidden", "");
+    document.documentElement.classList.remove("is-menu-open");
   }
 
   menuButton?.addEventListener("click", () => {

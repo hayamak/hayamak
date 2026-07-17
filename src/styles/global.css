@@ -4,10 +4,27 @@
   --color-text: #18181b;
   --color-muted: #71717a;
   --color-bg: #fafafa;
+  --color-surface: #fff;
+  --color-border: #f4f4f5;
+  --color-hover: #fafafa;
+
+  --color-divider: #e4e4e7;
 
   --color-accent: #2563eb;
   --container-width: 960px;
   --journal-width: 46rem;
+}
+
+html.dark {
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-bg: #18181b;
+  --color-surface: #27272a;
+  --color-border: #3f3f46;
+  --color-hover: #323238;
+  --color-divider: #52525b;
+
+  --color-accent: #60a5fa;
 }
 
 *,

@@ -48,8 +48,7 @@ const { title, description, date, href } = Astro.props;
   }
 
   .journal-card:hover {
-    background: #fafafa;
-    /* transform: translateY(-1px); */
+    background: var(--color-hover);
   }
 
   .journal-card:focus-visible {
@@ -73,7 +72,6 @@ const { title, description, date, href } = Astro.props;
     position: relative;
 
     color: var(--color-muted);
-    /* color: #a1a1aa; */
     font-size: 0.875rem;
   }
 
@@ -85,7 +83,7 @@ const { title, description, date, href } = Astro.props;
     left: 0;
     width: 2px;
     border-radius: 999px;
-    background: #e4e4e7;
+    background: var(--color-divider);
   }
 
   .journal-card p {
