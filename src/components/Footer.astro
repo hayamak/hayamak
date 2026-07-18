@@ -1,6 +1,7 @@
 ---
 // src/components/Footer.astro
 const navItems = [
+  { href: "/", label: "ホーム" },
   { href: "/journal", label: "あれこれ" },
   { href: "/music", label: "音楽" },
   { href: "/espanol", label: "Español" },
@@ -25,7 +26,7 @@ const navItems = [
       </nav>
 
       <p>
-        &copy; {new Date().getFullYear()} Hayama. All rights reserved.
+        &copy; {new Date().getFullYear()} Hayama
       </p>
     </div>
   </div>
