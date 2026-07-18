@@ -1,0 +1,98 @@
+---
+// src/layouts/LegalLayout.astro
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+
+const formattedUpdatedDate = frontmatter.updatedDate
+  ? new Intl.DateTimeFormat("ja-JP", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      timeZone: "Asia/Tokyo",
+    }).format(new Date(frontmatter.updatedDate))
+  : null;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <section class="page-layout">
+    <div class="container">
+      <article class="page-content">
+        <header class="page-header">
+          <h1>{frontmatter.title}</h1>
+
+          {
+            formattedUpdatedDate && (
+              <p class="updated-date">最終更新日：{formattedUpdatedDate}</p>
+            )
+          }
+        </header>
+
+        <div class="page-body">
+          <slot />
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-layout {
+    padding-top: 4rem;
+  }
+
+  .page-content {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .page-header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .page-label {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .page-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+
+  .updated-date {
+    margin: 1rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+  }
+
+  .page-body {
+    margin-top: 3rem;
+  }
+
+  .page-body :global(h1) {
+    display: none;
+  }
+
+  .page-body :global(h2) {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .page-body :global(p) {
+    line-height: 1.9;
+  }
+
+  @media (min-width: 1024px) {
+    .page-layout {
+      padding-top: 7rem;
+    }
+  }
+</style>
