@@ -23,13 +23,14 @@ const photos = [
 <div class="photos">
   <div class="photos-inner">
     {
-      photos.map((photo) => (
+      photos.map((photo, index) => (
         <div class={`photo-frame ${photo.rotation}`}>
           <div class="photo-aspect">
             <Picture
               src={photo.src}
               formats={["avif", "webp"]}
               alt={photo.alt}
+              priority={index === 0}
             />
           </div>
         </div>
