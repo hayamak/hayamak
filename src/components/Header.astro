@@ -64,7 +64,9 @@ const isActivePath = (href: string) => {
         }
       </ul>
     </nav>
-    <ThemeIcon />
+    <div class="theme-toggle">
+      <ThemeIcon />
+    </div>
   </div>
   <nav
     id="mobile-menu"
@@ -121,10 +123,15 @@ const isActivePath = (href: string) => {
   }
 
   .header-inner {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+  }
+
+  .theme-toggle {
+    pointer-events: auto;
   }
 
   .desktop-nav,
@@ -260,6 +267,13 @@ const isActivePath = (href: string) => {
   }
 
   @media (min-width: 641px) {
+    .theme-toggle {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
     .mobile-nav {
       display: none;
     }
