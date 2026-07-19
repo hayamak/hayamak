@@ -9,6 +9,8 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://hayama.me",
 
+  output: "server",
+
   adapter: cloudflare({
     imageService: "compile",
   }),

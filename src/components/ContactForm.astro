@@ -2,45 +2,68 @@
 // src/components/ContactForm.astro
 ---
 
-<form class="contact-form">
-  <div class="form-group">
-    <label for="name">お名前（任意）</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      autocomplete="name"
-      placeholder="羽山 和行"
-    />
-  </div>
+<div class="contact-form-wrapper">
+  <form class="contact-form" id="contact-form">
+    <div class="contact-error" id="contact-error" role="alert" hidden>
+      送信できませんでした。時間をおいてもう一度お試しください。
+    </div>
+    <div class="form-group">
+      <label for="name">お名前（任意）</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        autocomplete="name"
+        placeholder="羽山 太郎"
+      />
+    </div>
 
-  <div class="form-group">
-    <label for="email">メールアドレス（必須）</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      autocomplete="email"
-      placeholder="hayama@example.com"
-      required
-    />
-  </div>
+    <div class="form-group">
+      <label for="email">メールアドレス（必須）</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        autocomplete="email"
+        placeholder="taro@example.com"
+        required
+      />
+    </div>
 
-  <div class="form-group">
-    <label for="message">お問い合わせ内容（必須）</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="8"
-      placeholder="お問い合わせ内容をご入力ください"
-      required></textarea>
-  </div>
+    <div class="form-group">
+      <label for="message">お問い合わせ内容（必須）</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="8"
+        placeholder="お問い合わせ内容をご入力ください"
+        required></textarea>
+    </div>
 
-  <button type="submit"> 送信する </button>
-</form>
+    <button type="submit" id="submit-button"> 送信する </button>
+  </form>
+  <div
+    class="contact-success"
+    id="contact-success"
+    role="status"
+    tabindex="-1"
+    hidden
+  >
+    <div class="contact-success-icon" aria-hidden="true">✓</div>
+
+    <h2>お問い合わせを送信しました</h2>
+
+    <p>
+      ありがとうございます。<br />
+      内容を確認のうえ、必要に応じて返信いたします。
+    </p>
+  </div>
+</div>
 
 <style>
-  .contact-form {
+  .contact-form-wrapper,
+  .contact-form,
+  .contact-success {
     max-width: 38rem;
   }
 
@@ -56,6 +79,7 @@
 
   input,
   textarea {
+    box-sizing: border-box;
     width: 100%;
     padding: 0.875rem 1rem;
     border: 1px solid var(--color-border);
@@ -67,12 +91,11 @@
       border-color 0.2s,
       box-shadow 0.2s,
       background-color 0.2s;
-    box-sizing: border-box;
   }
 
   textarea {
-    resize: vertical;
     min-height: 12rem;
+    resize: vertical;
   }
 
   input::placeholder,
@@ -105,11 +128,114 @@
       transform 0.2s;
   }
 
-  button:hover {
+  button:hover:not(:disabled) {
     opacity: 0.9;
   }
 
-  button:active {
+  button:active:not(:disabled) {
     transform: translateY(1px);
   }
+
+  button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+
+  .contact-error,
+  .contact-success {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-surface);
+  }
+
+  .contact-error {
+    margin-bottom: 2rem;
+    border-color: #dc2626;
+  }
+
+  .contact-success {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background: var(--color-surface);
+    text-align: center;
+  }
+
+  .contact-success-icon {
+    display: grid;
+    place-items: center;
+
+    width: 4rem;
+    height: 4rem;
+
+    margin: 0 auto 1.5rem;
+
+    border-radius: 9999px;
+
+    background: rgb(from var(--color-accent) r g b / 0.12);
+    color: var(--color-accent);
+
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .contact-success h2 {
+    margin: 0;
+    font-size: 1.375rem;
+  }
+
+  .contact-success p {
+    margin: 1rem 0 0;
+    color: var(--color-muted);
+    line-height: 1.8;
+  }
 </style>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+
+  const submitButton = document.getElementById(
+    "submit-button",
+  ) as HTMLButtonElement | null;
+
+  const successMessage = document.getElementById(
+    "contact-success",
+  ) as HTMLDivElement | null;
+
+  const errorMessage = document.getElementById(
+    "contact-error",
+  ) as HTMLDivElement | null;
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!submitButton || !successMessage || !errorMessage) {
+      return;
+    }
+
+    errorMessage.hidden = true;
+    submitButton.disabled = true;
+    submitButton.textContent = "送信中…";
+
+    const formData = new FormData(form);
+    const { error } = await actions.contact(formData);
+
+    if (error) {
+      console.error("送信に失敗しました", error);
+
+      errorMessage.hidden = false;
+      submitButton.disabled = false;
+      submitButton.textContent = "送信する";
+      return;
+    }
+
+    form.hidden = true;
+    successMessage.hidden = false;
+    successMessage.focus();
+  });
+</script>
