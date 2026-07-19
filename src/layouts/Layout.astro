@@ -10,10 +10,9 @@ interface Props {
   description?: string;
 }
 
-const {
-  title = "羽山 - Hayama",
-  description = "羽山和行のホームページです。",
-} = Astro.props;
+const { title, description } = Astro.props;
+
+const pageTitle = title ? `${title} | hayama.me` : "hayama.me";
 ---
 
 <!doctype html>
@@ -58,7 +57,7 @@ const {
     />
     <meta name="twitter:image:alt" content="Hayama のホームページ" />
 
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <div class="site-background">

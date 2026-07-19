@@ -1,0 +1,14 @@
+---
+// src/pages/contact.astro
+import Layout from "../layouts/Layout.astro";
+import ContentLayout from "../layouts/ContentLayout.astro";
+---
+
+<Layout title="お問い合わせ -> 羽山">
+  <ContentLayout title="お問い合わせ">
+    <Fragment slot="intro"> ご連絡は以下のフォームからお願いします。 </Fragment>
+    <section class="contact">
+      <!-- 後で ContactForm.astro を配置 -->
+    </section>
+  </ContentLayout>
+</Layout>
