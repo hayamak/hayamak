@@ -1,4 +1,5 @@
 ---
+prerender: true;
 layout: ../layouts/LegalLayout.astro
 title: プライバシーポリシー
 description: 当サイトにおける個人情報の取り扱いについて説明します。
