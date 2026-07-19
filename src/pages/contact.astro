@@ -2,13 +2,14 @@
 // src/pages/contact.astro
 import Layout from "../layouts/Layout.astro";
 import ContentLayout from "../layouts/ContentLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
-<Layout title="お問い合わせ -> 羽山">
+<Layout title="お問い合わせ">
   <ContentLayout title="お問い合わせ">
     <Fragment slot="intro"> ご連絡は以下のフォームからお願いします。 </Fragment>
     <section class="contact">
-      <!-- 後で ContactForm.astro を配置 -->
+      <ContactForm />
     </section>
   </ContentLayout>
 </Layout>
