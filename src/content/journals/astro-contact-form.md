@@ -65,7 +65,7 @@ export const server = {
 
 ## Resend
 
-<a href="https://resend.com/" target="_blank" rel="noopener noreferrer">Resend</a>は無料枠（現在3,000通/月）がある。アカウントを作成して、ドメイン（`hayama.me`）を追加するとCloudflareとの連携によって必要なDNSレコードも自動で追加された。Resendのダッシュボードでステータスが「Verified」になって完了。
+<a href="https://resend.com/" target="_blank" rel="noopener noreferrer">Resend</a>は今日時点で、3,000通/月の無料枠がある。アカウントを作成して、ドメイン（`hayama.me`）を追加するとCloudflareとの連携によって必要なDNSレコードも自動で追加された。Resendのダッシュボードでステータスが「Verified」になって完了。
 
 ![Resend verified](../../assets/journals/resend-verified.jpg)
 
@@ -95,29 +95,9 @@ export const server = {
 };
 ```
 
-## AstroとCloudflareの設定
+## Cloudflareの設定
 
-### Astro
-
-Astroはデフォルトでは静的にページを生成するため、問い合わせページのみSSRで動作するように、`src/pages/contact.astro`で`prerender = false`を指定した。
-
-```ts
-// astro.config.mjs
-export default defineConfig({
-  output: "static",
-});
-```
-
-```astro
----
-// src/pages/contact.astro
-export const prerender = false;
----
-```
-
-### Cloudflare
-
-Cloudflareのダッシュボードから`CONTACT_TO_EMAIL`をPlaintext変数として追加していた。ところが、デプロイ後にこの変数が消えてしまった。Wranglerからデプロイすると、設定ファイルに含まれていない通常の変数が上書きされるためだった。
+Cloudflareのダッシュボードから`RESEND_API_KEY`をSecretとして、また`CONTACT_TO_EMAIL`をPlaintext変数として追加していた。ところが、デプロイ後に`CONTACT_TO_EMAIL`が消えてしまった。Wranglerからデプロイすると、設定ファイルに含まれていない通常の変数が上書きされるためだった。
 
 そこで、秘密情報ではない`CONTACT_TO_EMAIL`は`wrangler.jsonc`の`vars`で管理することにした。
 
