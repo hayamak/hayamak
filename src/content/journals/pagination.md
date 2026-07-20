@@ -29,7 +29,7 @@ Astro公式の*Routing Reference*を確認すると、次のように書かれ�
 - `/posts/[page].astro` → `/posts/1`, `/posts/2`, `/posts/3` ...
 - `/posts/[...page].astro` → `/posts`, `/posts/2`, `/posts/3` ...
 
-そこで改めて、ChatGPTに`[...page].astro`でいいんじゃないの？と聞くと、「実は私もその案をおすすめしたかった。」という、そば屋の出前みたいな可愛い回答。
+そこで改めて、ChatGPTに`[...page].astro`でいいんじゃないの？と聞くと、「実は私もその案をおすすめしたかった。」という、調子のいいそば屋の出前みたいな可愛い回答。
 
 ## 変更点
 
