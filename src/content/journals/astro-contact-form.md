@@ -74,9 +74,14 @@ Resendは3,000通/月まで無料。アカウントを作成して、ドメイ�
 `actions`内のhandlerをResendでメール送信するように変更。
 
 ```ts
+import { env } from "cloudflare:workers";
+
 handler: async ({ name, email, message }) => {
-      // ResendのAPI keyを設定
-      const apiKey = import.meta.env.RESEND_API_KEY;
+      // ResendのAPI keyとtoEmailを環境変数から取得。
+      // import.meta.envじゃない。
+      const apiKey = env.RESEND_API_KEY;
+      const toEmail = env.CONTACT_TO_EMAIL;
+
       const resend = new Resend(apiKey);
 
       const { data, error } = await resend.emails.send({

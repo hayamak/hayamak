@@ -19,8 +19,6 @@ export const server = {
     handler: async ({ name, email, message }) => {
       const apiKey = env.RESEND_API_KEY;
       const toEmail = env.CONTACT_TO_EMAIL;
-      // const apiKey = import.meta.env.RESEND_API_KEY;
-      // const toEmail = import.meta.env.CONTACT_TO_EMAIL;
 
       if (!apiKey || !toEmail) {
         console.error("お問い合わせメールの環境変数が設定されていません");
