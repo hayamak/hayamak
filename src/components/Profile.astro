@@ -1,6 +1,21 @@
-<!-- src/components/Profile.astro -->
+---
+// src/components/Profile.astro
+import { Picture } from "astro:assets";
+import me from "../assets/photos/me.jpg";
+---
+
 <div class="profile-card">
   <h2>プロフィール</h2>
+
+  <div class="profile-avatar">
+    <Picture
+      src={me}
+      alt="羽山 和行"
+      widths={[120, 240]}
+      sizes="120px"
+      formats={["avif", "webp"]}
+    />
+  </div>
 
   <div class="profile-list">
     <p>千葉県南房総市出身、東京都中央区在住のO型、1969年3月生まれ魚座です。</p>
@@ -28,7 +43,7 @@
 
 <style>
   .profile-card {
-    border: 1px solid #f4f4f5;
+    border: 1px solid var(--color-border);
     border-radius: 1rem;
     padding: 1.5rem;
   }
@@ -72,5 +87,19 @@
     color: var(--color-muted);
     font-size: 0.75rem;
     text-align: right;
+  }
+
+  .profile-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .profile-avatar :global(img) {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 </style>
