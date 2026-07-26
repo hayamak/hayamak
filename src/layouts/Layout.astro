@@ -60,48 +60,34 @@ const pageTitle = title ? `${title} | hayama.me` : "hayama.me";
     <title>{pageTitle}</title>
   </head>
   <body>
-    <div class="site-background">
-      <div class="site-background-inner">
-        <div class="site-panel"></div>
+    <div class="site-shell">
+      <div class="site-content">
+        <Header />
+        <main>
+          <slot />
+        </main>
+        <Footer />
       </div>
-    </div>
-    <div class="site-content">
-      <Header />
-      <main>
-        <slot />
-      </main>
-      <Footer />
     </div>
   </body>
 </html>
 
 <style>
-  .site-background {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    padding-inline: 0;
-  }
-
-  .site-background-inner {
-    display: flex;
-    width: 100%;
-    max-width: 80rem;
-  }
-
-  .site-panel {
-    width: 100%;
-    background: var(--color-surface);
-    border-inline: 1px solid var(--color-border);
+  .site-shell {
+    min-height: 100vh;
   }
 
   .site-content {
+    display: flex;
     position: relative;
     display: flex;
     min-height: 100vh;
     width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
     flex-direction: column;
+    background: var(--color-surface);
+    border-inline: 1px solid var(--color-border);
   }
 
   main {
@@ -109,7 +95,7 @@ const pageTitle = title ? `${title} | hayama.me` : "hayama.me";
   }
 
   @media (min-width: 640px) {
-    .site-background {
+    .site-shell {
       padding-inline: 2rem;
     }
   }
