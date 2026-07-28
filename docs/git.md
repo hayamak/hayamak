@@ -16,7 +16,7 @@ git switch -c <branch-name>
 | -------------- | -------------- | -------------------------- |
 | `feature/`     | 新機能         | `feature/contact-form`     |
 | `fix/`         | バグ修正・調整 | `fix/ipad-layout`          |
-| `article/`     | 記事執筆       | `article/trailing-slash`   |
+| `journal/`     | 記事執筆       | `journal/trailing-slash`   |
 | `chore/`       | 雑務           | `chore/creste-docs-git.md` |
 
 作業完了後は GitHub へ Push し、Cloudflare のプレビューで確認してから Pull Request を作成し、`main` へマージする。
