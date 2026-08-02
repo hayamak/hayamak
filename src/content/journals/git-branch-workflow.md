@@ -46,11 +46,11 @@ git commit -m "作業内容を記録"
 git push -u origin ブランチ名
 ```
 
-`-u origin ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定する。
+`-u origin ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定する。2回目以降は、`git push`のみ。
 
 ## プレビューの確認とマージ
 
-次にGitHubでプルリクエスト（PR）を作成すると、Cloudflareからプレビュー画面のURLが記載されたメールが届く。
+次にGitHubで **Create Pullrequest** をクリックプルリクエスト（PR）を作成すると、Cloudflareからプレビュー画面のURLが記載されたメールが届く。
 プレビュー画面で確認して問題がなければマージして完了。
 
 GitHubとCloudflareを連携するだけで、この運用が簡単に実現できるのは本当にありがたい。
