@@ -31,26 +31,36 @@ pubDate: 2026-07-28
 新しい作業を始めるときは、まず最新のmainブランチを取得してからブランチを作成する。
 
 ```bash
-git switch main
-git pull
-git switch -c プレフィクス/作業内容
+$ git switch main
+$ git pull
+$ git switch -c プレフィクス/作業内容
 ```
 
 ファイルの修正が完了したら、
 
 ```bash
-git status
-git diff
-git add .
-git commit -m "作業内容を記録"
-git push -u origin ブランチ名
+$ git status
+$ git diff
+$ git add .
+$ git commit -m "作業内容を記録"
+$ git push -u origin ブランチ名
 ```
 
-`-u origin ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定する。2回目以降は、`git push`のみ。
+`-u origin ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定。2回目以降は、`git push`のみ。
 
 ## プレビューの確認とマージ
 
-次にGitHubで **Create Pullrequest** をクリックプルリクエスト（PR）を作成すると、Cloudflareからプレビュー画面のURLが記載されたメールが届く。
-プレビュー画面で確認して問題がなければマージして完了。
+次にGitHubへ行き、**Compare & pull request** をクリック。続いて **Create pull request** をクリックしてプルリクエスト（PR）を作成すると、Cloudflareからプレビュー画面のURLが記載されたメールが届く。
+プレビュー画面で確認して問題がなければマージ（ **Squash & Merge** ）、そのまま **Delete branch** をクリックしてGitHub側の作業ブランチを削除。
 
-GitHubとCloudflareを連携するだけで、この運用が簡単に実現できるのは本当にありがたい。
+最後にローカル側の作業ブランチを削除して完了。
+
+```bash
+$ git switch main
+$ git pull
+$ git branch -d prefix/branch-name
+```
+
+※ **Squash & Merge** を使用しているため、ローカルで`git branch -d`を実行すると警告が表示されることがあるけど問題ない。
+
+GitHubとCloudflareを連携するだけで、プレビューの運用が簡単に実現できるのはありがたい。
