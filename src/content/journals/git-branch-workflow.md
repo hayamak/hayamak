@@ -28,7 +28,7 @@ pubDate: 2026-07-28
 
 ## 作業手順
 
-新しい作業を始めるときは、まず最新のmainブランチを取得してからブランチを作成する。
+新しい作業を始めるときは、まず最新のmainブランチを取得してから作業ブランチを作成する。
 
 ```bash
 $ git switch main
@@ -42,11 +42,11 @@ $ git switch -c プレフィクス/作業内容
 $ git status
 $ git diff
 $ git add .
-$ git commit -m "作業内容を記録"
-$ git push -u origin ブランチ名
+$ git commit -m "変更内容を記録"
+$ git push -u origin 作業ブランチ名
 ```
 
-`-u origin ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定。2回目以降は、`git push`のみ。
+`-u origin 作業ブランチ名` は、そのブランチを初めてGitHubへプッシュするときだけ指定。2回目以降は、`git push`のみ。
 
 ## プレビューの確認とマージ
 
