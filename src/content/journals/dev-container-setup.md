@@ -13,8 +13,8 @@ pubDate: 2026-08-02
 まずは、適当なプロジェクト用のディレクトリを作成して、そこに移動してVS Codeを起動する。
 
 ```bash
-% mkdir プロジェクト名
-% cd プロジェクト名
+% mkdir project-name
+% cd project-name
 % code .
 ```
 
@@ -32,7 +32,7 @@ VS Codeのターミナルで`.devcontainer/`を作成して、`devcontainer.json
 // devcontainer.json
 
 {
-  "name": "Project-name",
+  "name": "project-name",
   "build": {
     "dockerfile": "Dockerfile"
   },
@@ -113,6 +113,12 @@ $ git init
 $ git branch -m main # masterならmainに変更
 $ git add .
 $ git commit -m "Initial commit"
+```
+
+git initした直後の構成は以下。
+
+```bash
+$ tree -a -L 2
 ```
 
 ## GitHub
