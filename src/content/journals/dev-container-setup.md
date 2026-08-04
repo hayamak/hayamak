@@ -4,11 +4,11 @@ description: MacにNode.jsをインストールせず、VS CodeのDev Container�
 pubDate: 2026-08-02
 ---
 
-自分のMacに開発環境構築のためだけにNode.jsをインストールするのは、なんとなくローカル環境が汚れるような感覚がある。
+自分のMacに開発環境構築のためだけにNode.jsをインストールするのは、なんとなくローカル環境が汚れるような気がして嫌なのでVS CodeのDev Containerを使って開発している。
 
-なので、VS CodeのDev Containerを使って開発している。ただ、開発環境を構築する機会はそれほど多くないので、毎回手順を調べ直してしまう。
+開発環境を構築する機会はそれほど多くないので、毎回手順を調べ直してしまう。ということで、自分用の手順メモ。
 
-ということで、自分用の手順メモ。
+## プロジェクト用のディレクトリ作成
 
 まずは、適当なプロジェクト用のディレクトリを作成して、そこに移動してVS Codeを起動する。
 
@@ -89,7 +89,7 @@ $ tree -a -L 2
     └── tsconfig.json
 ```
 
-作成された project-name/ 内の必要なファイルを、一つ上のディレクトリへ移動してから削除する。
+作成された `project-name/` 内の必要なファイルを、一つ上のディレクトリへ移動してから削除する。
 
 ```bash
 $ mv project-name/* . # 隠しファイル以外が移動される
@@ -97,7 +97,7 @@ $ mv project-name/.gitignore . # .gitignoreも移動
 $ rm -rf project-name # project-nameディレクトリ（中の.gitや.nextなども含め）を削除。
 ```
 
-移動してきた node_modules は一旦削除し、package-lock.jsonをもとに依存関係を再インストールする。
+移動してきた `node_modules` は一旦削除し、`package-lock.json`をもとに依存関係を再インストールする。
 
 ```bash
 $ rm -rf node_modules
@@ -113,7 +113,7 @@ $ git init
 $ git branch -m main # masterならmainに変更
 ```
 
-git initした直後のディレクトリ構成は以下。
+`git init` した直後のディレクトリ構成は以下。
 
 ```bash
 $ tree -a -L 1
@@ -137,7 +137,7 @@ $ tree -a -L 1
 └── tsconfig.json
 ```
 
-git addして、Initial commitする。
+`git add`して、`Initial commit`する。
 
 ```bash
 $ git add .
@@ -146,7 +146,7 @@ $ git commit -m "Initial commit"
 
 ## GitHub
 
-GitHubのダッシュボードでリポジトリを作成して、ローカルで`git remote add`して、プッシュして完了。🎉
+GitHubのダッシュボードでリポジトリを作成して、ローカルで `git remote add` 、プッシュして完了。🎉
 
 ```bash
 $ git remote add origin https://github.com/hayamak/project-name.git
