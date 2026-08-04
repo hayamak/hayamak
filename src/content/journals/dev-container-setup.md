@@ -28,13 +28,13 @@ VS Codeのターミナルで`.devcontainer/`を作成して、`devcontainer.json
 % touch .devcontainer/Dockerfile
 ```
 
-```json
+```jsonc
 // devcontainer.json
 
 {
   "name": "project-name",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
   },
   "forwardPorts": [3000], //Next.jsなら3000、Astroなら4321
 
@@ -42,7 +42,7 @@ VS Codeのターミナルで`.devcontainer/`を作成して、`devcontainer.json
 
   "customizations": {
     // カスタム設定
-  }
+  },
 }
 ```
 
@@ -68,7 +68,7 @@ $ tree -a -L 2
 ```
 
 ```tree
-.
+. ← project-name/
 ├── .devcontainer
 │   ├── devcontainer.json
 │   └── Dockerfile
@@ -89,15 +89,15 @@ $ tree -a -L 2
     └── tsconfig.json
 ```
 
-project-name/project-name内の必要なファイルをproject-name/に移動させて、削除する。
+作成された project-name/ 内の必要なファイルを、一つ上のディレクトリへ移動してから削除する。
 
 ```bash
 $ mv project-name/* . # 隠しファイル以外が移動される
-$ mv project-name/.gitignore . # .gitigonoreも移動
+$ mv project-name/.gitignore . # .gitignoreも移動
 $ rm -rf project-name # project-nameディレクトリ（中の.gitや.nextなども含め）を削除。
 ```
 
-`project-name/`に移動してきた `node_modules`は一旦削除して、`package-lock.json`から再生。
+移動してきた node_modules は一旦削除し、package-lock.jsonをもとに依存関係を再インストールする。
 
 ```bash
 $ rm -rf node_modules
@@ -111,14 +111,37 @@ Gitでの管理を始める。
 ```bash
 $ git init
 $ git branch -m main # masterならmainに変更
-$ git add .
-$ git commit -m "Initial commit"
 ```
 
-git initした直後の構成は以下。
+git initした直後のディレクトリ構成は以下。
 
 ```bash
-$ tree -a -L 2
+$ tree -a -L 1
+```
+
+```tree
+. ← project-name/
+├── .devcontainer
+├── eslint.config.mjs
+├── .git
+├── .gitignore
+├── next.config.ts
+├── next-env.d.ts
+├── node_modules
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── public
+├── README.md
+├── src
+└── tsconfig.json
+```
+
+git addして、Initial commitする。
+
+```bash
+$ git add .
+$ git commit -m "Initial commit"
 ```
 
 ## GitHub
