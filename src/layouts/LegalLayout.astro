@@ -21,11 +21,9 @@ const formattedUpdatedDate = frontmatter.updatedDate
         <header class="page-header">
           <h1>{frontmatter.title}</h1>
 
-          {
-            formattedUpdatedDate && (
-              <p class="updated-date">最終更新日：{formattedUpdatedDate}</p>
-            )
-          }
+          {formattedUpdatedDate && (
+            <p class="updated-date">最終更新日：{formattedUpdatedDate}</p>
+          )}
         </header>
 
         <div class="page-body">

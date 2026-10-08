@@ -22,20 +22,18 @@ const photos = [
 
 <div class="photos">
   <div class="photos-inner">
-    {
-      photos.map((photo, index) => (
-        <div class={`photo-frame ${photo.rotation}`}>
-          <div class="photo-aspect">
-            <Picture
-              src={photo.src}
-              formats={["avif", "webp"]}
-              alt={photo.alt}
-              priority={index === 2}
-            />
-          </div>
+    {photos.map((photo, index) => (
+      <div class={`photo-frame ${photo.rotation}`}>
+        <div class="photo-aspect">
+          <Picture
+            src={photo.src}
+            formats={["avif", "webp"]}
+            alt={photo.alt}
+            priority={index === 2}
+          />
         </div>
-      ))
-    }
+      </div>
+    ))}
   </div>
 </div>
 

@@ -30,31 +30,27 @@ const { page } = Astro.props;
       技術の話題を中心に、音楽、スペイン語、スノーボードやジムなどの関心ごとについてあれこれ記録します。
     </Fragment>
     <section class="journal-list">
-      {
-        page.data.map((journal) => (
-          <JournalCard
-            title={journal.data.title}
-            description={journal.data.description}
-            date={journal.data.pubDate.toISOString().slice(0, 10)}
-            href={`/journal/${journal.id}`}
-          />
-        ))
-      }
+      {page.data.map((journal) => (
+        <JournalCard
+          title={journal.data.title}
+          description={journal.data.description}
+          date={journal.data.pubDate.toISOString().slice(0, 10)}
+          href={`/journal/${journal.id}`}
+        />
+      ))}
     </section>
 
     <!-- ナビゲーション -->
     <nav class="pagination" aria-label="Journalのページ送り">
       <div class="pagination-side">
-        {
-          page.url.prev && (
-            <a href={page.url.prev} class="pagination-link">
-              <span class="arrow" aria-hidden="true">
-                ←
-              </span>
-              前へ
-            </a>
-          )
-        }
+        {page.url.prev && (
+          <a href={page.url.prev} class="pagination-link">
+            <span class="arrow" aria-hidden="true">
+              ←
+            </span>
+            前へ
+          </a>
+        )}
       </div>
 
       <span class="pagination-status">
@@ -62,16 +58,14 @@ const { page } = Astro.props;
       </span>
 
       <div class="pagination-side pagination-side-next">
-        {
-          page.url.next && (
-            <a href={page.url.next} class="pagination-link">
-              次へ
-              <span class="arrow" aria-hidden="true">
-                →
-              </span>
-            </a>
-          )
-        }
+        {page.url.next && (
+          <a href={page.url.next} class="pagination-link">
+            次へ
+            <span class="arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        )}
       </div>
     </nav>
   </ContentLayout>

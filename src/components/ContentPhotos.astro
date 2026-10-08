@@ -18,19 +18,13 @@ const { photos }: Props = Astro.props;
 
 <div class="content-photos-viewport">
   <div class="content-photos">
-    {
-      photos.map((photo) => (
-        <div class={`photo-frame ${photo.rotation ?? "positive"}`}>
-          <div class="photo-aspect">
-            <Picture
-              src={photo.src}
-              formats={["avif", "webp"]}
-              alt={photo.alt}
-            />
-          </div>
+    {photos.map((photo) => (
+      <div class={`photo-frame ${photo.rotation ?? "positive"}`}>
+        <div class="photo-aspect">
+          <Picture src={photo.src} formats={["avif", "webp"]} alt={photo.alt} />
         </div>
-      ))
-    }
+      </div>
+    ))}
   </div>
 </div>
 

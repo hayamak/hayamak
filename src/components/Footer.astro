@@ -16,19 +16,15 @@ const navItems = [
     <div class="footer-inner">
       <nav aria-label="フッターナビゲーション">
         <ul class="footer-nav">
-          {
-            navItems.map((item) => (
-              <li>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))
-          }
+          {navItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      <p>
-        &copy; {new Date().getFullYear()} Hayama
-      </p>
+      <p>&copy; {new Date().getFullYear()} Hayama</p>
     </div>
   </div>
 </footer>

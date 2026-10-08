@@ -40,28 +40,24 @@ const isActivePath = (href: string) => {
           stroke="currentColor"
           stroke-width="1.5"
           stroke-linecap="round"
-          stroke-linejoin="round"></path>
+          stroke-linejoin="round"
+        ></path>
       </svg>
     </button>
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <ul>
-        {
-          navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "nav-link",
-                  isActivePath(item.href) && "is-active",
-                ]}
-                aria-current={isActivePath(item.href) ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={["nav-link", isActivePath(item.href) && "is-active"]}
+              aria-current={isActivePath(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
     <div class="theme-toggle">
@@ -88,22 +84,20 @@ const isActivePath = (href: string) => {
       </div>
 
       <ul>
-        {
-          navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={[
-                  "mobile-nav-link",
-                  isActivePath(item.href) && "is-active",
-                ]}
-                aria-current={isActivePath(item.href) ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                "mobile-nav-link",
+                isActivePath(item.href) && "is-active",
+              ]}
+              aria-current={isActivePath(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </nav>

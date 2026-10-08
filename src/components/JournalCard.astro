@@ -10,7 +10,9 @@ const { title, description, date, href } = Astro.props;
 ---
 
 <a class="journal-card" href={href} aria-label={`${title} を読む`}>
-  <time datetime={date} class="journal-date">{date}</time>
+  <time datetime={date} class="journal-date">
+    {date}
+  </time>
 
   <h2 class="journal-title">{title}</h2>
 
@@ -24,7 +26,8 @@ const { title, description, date, href } = Astro.props;
         stroke="currentColor"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"></path>
+        stroke-linejoin="round"
+      ></path>
     </svg>
   </div>
 </a>

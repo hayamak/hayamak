@@ -59,17 +59,15 @@ const gyms = [
       行ったことのある特徴的なジムの記録です。頻度は低いと思いますが、追加があれば更新します。
     </Fragment>
     <div class="gym-grid">
-      {
-        gyms.map((gym) => (
-          <article class="gym-card">
-            <Image src={gym.image} alt={gym.alt} class="gym-image" />
-            <div class="gym-card-body">
-              <h2>{gym.name}</h2>
-              <p>{gym.description}</p>
-            </div>
-          </article>
-        ))
-      }
+      {gyms.map((gym) => (
+        <article class="gym-card">
+          <Image src={gym.image} alt={gym.alt} class="gym-image" />
+          <div class="gym-card-body">
+            <h2>{gym.name}</h2>
+            <p>{gym.description}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </ContentLayout>
 </Layout>
