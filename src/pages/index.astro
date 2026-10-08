@@ -67,18 +67,19 @@ const recentJournals = journals.slice(0, 4);
     <div class="container home-grid">
       <section>
         <div class="journal-list">
-          {
-            recentJournals.map((journal) => (
-              <JournalCard
-                title={journal.data.title}
-                description={journal.data.description}
-                date={journal.data.pubDate.toISOString().slice(0, 10)}
-                href={`/journal/${journal.id}`}
-              />
-            ))
-          }
+          {recentJournals.map((journal) => (
+            <JournalCard
+              title={journal.data.title}
+              description={journal.data.description}
+              date={journal.data.pubDate.toISOString().slice(0, 10)}
+              href={`/journal/${journal.id}`}
+            />
+          ))}
         </div>
-        <a class="journal-more" href="/journal"> すべて見る → </a>
+        <a class="journal-more" href="/journal">
+          {" "}
+          すべて見る →{" "}
+        </a>
       </section>
       <div>
         <Profile />

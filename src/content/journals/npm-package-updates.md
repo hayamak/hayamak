@@ -18,7 +18,7 @@ $ npm outdated
 # パッケージを更新
 $ npm update
 
-# lintを通して、エラーがないことを確認
+# lintを設定している場合は、エラーがないことを確認
 $ npm run lint
 
 # ビルドしてエラーがないことを確認
